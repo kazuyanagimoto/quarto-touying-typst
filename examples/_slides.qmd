@@ -28,9 +28,11 @@ A right column next to it.
 - Then third
 :::
 
-## Buttons and Cross-references
+## Emphasis and Buttons
 
-Jump to the [[summary]{.button}](#sec-end) with a Beamer-style button.
+- `.alert` for [emphasis]{.alert}, `.fg` for [colour]{.fg}, `.bg` for a
+  [highlight]{.bg}
+- Jump to the [[summary]{.button}](#sec-end) with a Beamer-style button
 
 ## Summary {#sec-end}
 

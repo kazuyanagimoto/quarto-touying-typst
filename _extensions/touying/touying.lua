@@ -10,13 +10,24 @@ function Para(el)
   end
 end
 
--- `[text]{.button}` renders a Beamer-style button (clickable inside a link).
+-- Inline command spans: `[text]{.alert}`, `[text]{.fg options='fill: red'}`,
+-- `[text]{.bg}`, `[[label]{.button}](#id)`. An `options` attribute is passed as
+-- the Typst call's named arguments.
+local inline_commands = { "alert", "fg", "bg", "button" }
+
 function Span(el)
-  if quarto.doc.is_format("typst") and el.classes:includes("button") then
-    local inlines = pandoc.List({ pandoc.RawInline('typst', '#button[') })
-    inlines:extend(el.content)
-    inlines:insert(pandoc.RawInline('typst', ']'))
-    return inlines
+  if not quarto.doc.is_format("typst") then
+    return nil
+  end
+  for _, cmd in ipairs(inline_commands) do
+    if el.classes:includes(cmd) then
+      local opts = el.attributes["options"]
+      local open = opts and ("#" .. cmd .. "(" .. opts .. ")[") or ("#" .. cmd .. "[")
+      local inlines = pandoc.List({ pandoc.RawInline('typst', open) })
+      inlines:extend(el.content)
+      inlines:insert(pandoc.RawInline('typst', ']'))
+      return inlines
+    end
   end
 end
 

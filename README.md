@@ -99,7 +99,19 @@ option; positive/negative values shift every heading by that amount.
 | `handout`      | `false`      | Collapse all incremental reveals into a handout       |
 
 Available themes: `metropolis`, `university`, `dewdrop`, `aqua`, `stargazer`,
-`simple`, `default`.
+`simple`, `default`, and `clean`.
+
+`clean` is a richer theme developed in this repo (it will eventually move to its
+own repository). Its title slide shows structured authors (name, affiliation,
+email, ORCID), and it adds emphasis classes:
+
+| Markup                                          | Renders                         |
+| ----------------------------------------------- | ------------------------------- |
+| `[text]{.alert}`                                | Accent-coloured emphasis        |
+| `[text]{.fg options='fill: rgb("#5D639E")'}`    | Custom-coloured text            |
+| `[text]{.bg}`                                    | Highlighted background          |
+
+`.alert` works in every theme; `.fg` / `.bg` / `.button` are theme-independent.
 
 ## Reveal.js-style syntax
 

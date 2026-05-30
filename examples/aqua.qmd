@@ -4,7 +4,10 @@ subtitle: "A Touying theme for Quarto"
 format: touying-typst
 theme: aqua
 author:
-  - name: Quarto + Touying
+  - name: Ada Lovelace
+    orcid: 0000-0002-1825-0097
+    email: ada@example.org
+    affiliations: Analytical Engine Co.
 date: today
 date-format: long
 ---

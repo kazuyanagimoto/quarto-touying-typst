@@ -8,3 +8,4 @@ examples/*.pdf
 /slides/
 
 **/*.quarto_ipynb
+/clean.typ

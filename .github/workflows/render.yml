@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  THEMES: "metropolis university dewdrop aqua stargazer simple default"
+  THEMES: "metropolis university dewdrop aqua stargazer simple default clean"
 
 jobs:
   build:

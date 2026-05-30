@@ -1,8 +1,8 @@
 ---
-title: "metropolis"
+title: "clean"
 subtitle: "A Touying theme for Quarto"
 format: touying-typst
-theme: metropolis
+theme: clean
 author:
   - name: Ada Lovelace
     orcid: 0000-0002-1825-0097

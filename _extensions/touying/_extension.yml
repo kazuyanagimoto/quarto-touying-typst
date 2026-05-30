@@ -13,6 +13,8 @@ contributes:
       template-partials:
         - typst-template.typ
         - typst-show.typ
+      format-resources:
+        - clean.typ
       # --- Sensible defaults (override in your document front matter) ----------
       theme: metropolis
       aspect-ratio: "16-9"
