@@ -1,0 +1,52 @@
+---
+title: Touying for Quarto
+subtitle: A drop-in Touying base extension
+format: touying-typst
+theme: metropolis           # metropolis | university | dewdrop | aqua | stargazer
+aspect-ratio: "16-9"
+author:
+  - name: Your Name
+    affiliations: Your Institution
+institute: Your Institution
+date: today
+date-format: long
+---
+
+# Getting Started
+
+## Slides Are Headings
+
+A level-1 heading (`#`) starts a new **section**, a level-2 heading (`##`)
+starts a new **slide** -- exactly like Touying's native `=` / `==`.
+
+- Standard Quarto + Typst content works as usual
+- Pick any built-in theme with the `theme:` option
+- All native [Touying](https://touying-typ.github.io) code is available
+
+## Pauses
+
+The Quarto pause marker works:
+
+First this shows.
+
+. . .
+
+Then this appears.
+
+## Incremental Lists
+
+::: {.incremental}
+- Revealed first
+- Revealed second
+- Revealed third
+:::
+
+## Native Touying Animation
+
+Inline pauses with native syntax: here #pause and now more.
+
+## Advanced: Complex Animation
+
+::: {.complex-anim repeat="4"}
+At subslide #only("2-")[two and later] and #uncover("3-")[three and later].
+:::
