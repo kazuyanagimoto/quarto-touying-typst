@@ -1,5 +1,5 @@
 #import "@preview/touying:0.7.3": *
-#import "clean.typ"
+#import "touying-clean.typ" as clean
 
 // Inline helpers (theme-independent) -----------------------------------------
 // `.fg` / `.bg` colour the text / its background.
