@@ -79,7 +79,18 @@
 ) = {
   let base = touying-themes.at(name)
   let named = (aspect-ratio: aspect-ratio)
-  let cfg = (config-info(..info-args),)
+  // Built-in themes show a single `institution`. If none was given, fall back to
+  // the first author's affiliation so `affiliations:` is not silently dropped.
+  // (The clean theme renders per-author affiliation itself, so leave it alone.)
+  let info = info-args.named()
+  if name != "clean" and info.at("institution", default: none) == none {
+    let authors = info.at("authors-data", default: ())
+    if authors.len() > 0 {
+      let aff = authors.first().at("affiliation", default: none)
+      if aff != none { info.insert("institution", aff) }
+    }
+  }
+  let cfg = (config-info(..info),)
   if name == "clean" {
     // The clean theme exposes its own named options.
     named.insert("handout", handout)
