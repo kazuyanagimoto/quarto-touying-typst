@@ -11,6 +11,7 @@ project:
 website:
   title: "quarto-touying-typst"
   description: "Touying slides for Quarto, with a gallery of built-in themes."
+  site-url: https://kazuyanagimoto.com/quarto-touying-typst/
   repo-url: https://github.com/kazuyanagimoto/quarto-touying-typst
   navbar:
     left:
