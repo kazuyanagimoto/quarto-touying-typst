@@ -4,6 +4,8 @@ project:
   render:
     - index.qmd
     - examples/*.qmd
+  resources:
+    - slides/
 
 website:
   title: "quarto-touying-typst"

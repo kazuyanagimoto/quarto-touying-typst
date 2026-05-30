@@ -21,8 +21,18 @@ build on top of this one.
 quarto add kazuyanagimoto/quarto-touying-typst
 ```
 
-A [theme gallery](examples/) of the same slides rendered with each built-in
-theme is in [`examples/`](examples/); build it locally with `quarto preview`.
+A **theme gallery** lets you flip through the same deck in each built-in theme
+right in the browser. Build and preview it locally:
+
+```bash
+just decks      # render each theme to a navigable HTML deck (needs `pip install touying`)
+quarto preview  # serve the gallery at index.qmd
+```
+
+The navigable decks are produced by keeping the Quarto-generated Typst
+(`keep-typ: true`) and running
+[touying-exporter](https://github.com/touying-typ/touying-exporter) on it
+(`touying compile <file>.typ --format html`).
 
 Or start from the template:
 

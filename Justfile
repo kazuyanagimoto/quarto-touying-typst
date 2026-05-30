@@ -17,6 +17,17 @@ thumbnails: render
       echo "images/$th.png"
     done
 
+# Build navigable HTML decks (requires `pip install touying` on PATH)
+decks:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    mkdir -p slides
+    for th in {{themes}}; do
+      quarto render examples/$th.qmd --to touying-typst -M keep-typ:true -o $th.pdf
+      touying compile examples/$th.typ --format html --output slides/$th.html
+      echo "slides/$th.html"
+    done
+
 # Render just the standalone template deck
 template:
     quarto render template.qmd --to touying-typst

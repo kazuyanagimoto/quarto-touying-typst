@@ -14,15 +14,18 @@ quarto add kazuyanagimoto/quarto-touying-typst
 
 ## Theme gallery
 
-Each card links to a PDF rendered from the [same source](https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/examples/_slides.qmd)
-with a different `theme:`.
+Every deck is rendered from the [same source](https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/examples/_slides.qmd)
+with a different `theme:`. Click a card to **flip through the slides in your
+browser** (navigable HTML exported with
+[touying-exporter](https://github.com/touying-typ/touying-exporter)); use the
+arrow keys, or grab the `PDF`.
 
 ::: {.gallery}
-<a class="card" href="examples/metropolis.pdf"><img src="images/metropolis.png" alt="metropolis theme"><div class="label">metropolis</div></a>
-<a class="card" href="examples/university.pdf"><img src="images/university.png" alt="university theme"><div class="label">university</div></a>
-<a class="card" href="examples/dewdrop.pdf"><img src="images/dewdrop.png" alt="dewdrop theme"><div class="label">dewdrop</div></a>
-<a class="card" href="examples/aqua.pdf"><img src="images/aqua.png" alt="aqua theme"><div class="label">aqua</div></a>
-<a class="card" href="examples/stargazer.pdf"><img src="images/stargazer.png" alt="stargazer theme"><div class="label">stargazer</div></a>
-<a class="card" href="examples/simple.pdf"><img src="images/simple.png" alt="simple theme"><div class="label">simple</div></a>
-<a class="card" href="examples/default.pdf"><img src="images/default.png" alt="default theme"><div class="label">default</div></a>
+<div class="card"><a class="deck" href="slides/metropolis.html"><img src="images/metropolis.png" alt="metropolis theme"></a><div class="label"><a href="slides/metropolis.html">metropolis</a><a class="pdf" href="examples/metropolis.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/university.html"><img src="images/university.png" alt="university theme"></a><div class="label"><a href="slides/university.html">university</a><a class="pdf" href="examples/university.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/dewdrop.html"><img src="images/dewdrop.png" alt="dewdrop theme"></a><div class="label"><a href="slides/dewdrop.html">dewdrop</a><a class="pdf" href="examples/dewdrop.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/aqua.html"><img src="images/aqua.png" alt="aqua theme"></a><div class="label"><a href="slides/aqua.html">aqua</a><a class="pdf" href="examples/aqua.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/stargazer.html"><img src="images/stargazer.png" alt="stargazer theme"></a><div class="label"><a href="slides/stargazer.html">stargazer</a><a class="pdf" href="examples/stargazer.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/simple.html"><img src="images/simple.png" alt="simple theme"></a><div class="label"><a href="slides/simple.html">simple</a><a class="pdf" href="examples/simple.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/default.html"><img src="images/default.png" alt="default theme"></a><div class="label"><a href="slides/default.html">default</a><a class="pdf" href="examples/default.pdf">PDF</a></div></div>
 :::
