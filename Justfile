@@ -8,12 +8,12 @@ render:
 preview:
     quarto preview
 
-# Regenerate gallery thumbnails (slide 3) from the rendered example PDFs
+# Regenerate gallery thumbnails (title slide) from the rendered example PDFs
 thumbnails: render
     #!/usr/bin/env bash
     set -euo pipefail
     for th in {{themes}}; do
-      pdftoppm -png -singlefile -r 95 -f 3 -l 3 _site/examples/$th.pdf images/$th
+      pdftoppm -png -singlefile -r 95 -f 1 -l 1 _site/examples/$th.pdf images/$th
       echo "images/$th.png"
     done
 

@@ -1,4 +1,4 @@
-name: Render
+name: Build
 
 on:
   push:
@@ -6,8 +6,11 @@ on:
   pull_request:
   workflow_dispatch:
 
+env:
+  THEMES: "metropolis university dewdrop aqua stargazer simple default"
+
 jobs:
-  render:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -15,13 +18,29 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render template (smoke test)
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install touying-exporter
+        run: pip install touying
+
+      - name: Smoke test (standalone template)
         run: quarto render template.qmd --to touying-typst
 
-      - name: Render gallery site (all themes)
+      - name: Build navigable HTML decks
+        run: |
+          mkdir -p slides
+          for th in $THEMES; do
+            quarto render examples/$th.qmd --to touying-typst -M keep-typ:true -o $th.pdf
+            touying compile examples/$th.typ --format html --output slides/$th.html
+          done
+
+      - name: Render gallery site
         run: quarto render
 
-      - name: Upload rendered site
+      - name: Upload site
         uses: actions/upload-artifact@v5
         with:
           name: site
