@@ -1,15 +1,17 @@
 #import "@preview/touying:0.7.3": *
 
-// Beamer-style button (theme-independent, like `\beamerbutton`). ------------
-// Themes may override `#button` for their own styling.
-#let button(body) = box(
-  fill: rgb("#e9ecef"),
-  inset: (x: 0.6em, y: 0.35em),
-  outset: (y: 0.1em),
-  radius: 0.3em,
-  stroke: 0.5pt + rgb("#adb5bd"),
-  text(size: 0.8em, body),
-)
+// Beamer-style goto button (like `\beamergotobutton`). Picks up the active
+// theme's primary colour via `touying-fn-wrapper`. Themes may override it.
+#let _button(self: none, body) = box(
+  fill: self.colors.primary,
+  inset: (x: 0.5em, y: 0.3em),
+  radius: 0.25em,
+  baseline: 0.25em,
+)[
+  #set text(size: 0.7em, fill: white)
+  #sym.triangle.filled.r~#body
+]
+#let button(body) = touying-fn-wrapper(_button.with(body))
 
 // Generic title slide for themes that have no config-info-driven one --------
 // (e.g. `simple`, `default`). Reads from `self.info`.
