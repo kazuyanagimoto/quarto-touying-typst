@@ -54,7 +54,8 @@ Content goes here.
 - `##` (level-2 heading) starts a new **slide**
 
 This mirrors Touying's native `=` / `==`, so Quarto's structure maps onto
-Touying with no extra markup.
+Touying with no extra markup. Use a `#` section before your `##` slides
+(otherwise the shallowest heading is promoted to a section divider).
 
 ## Options
 
@@ -64,21 +65,39 @@ Touying with no extra markup.
 | `aspect-ratio` | `16-9`       | Slide aspect ratio (`16-9`, `4-3`)                    |
 | `handout`      | `false`      | Collapse all incremental reveals into a handout       |
 
-Available themes: `metropolis`, `university`, `dewdrop`, `aqua`, `stargazer`.
+Available themes: `metropolis`, `university`, `dewdrop`, `aqua`, `stargazer`,
+`simple`, `default`.
 
-## Animations
+## Reveal.js-style syntax
 
-Quarto's presentation syntax is bridged to Touying:
+The goal is for Quarto's presentation syntax to work as-is. Currently bridged:
 
-| Quarto                       | Touying                       |
-| ---------------------------- | ----------------------------- |
-| `. . .`                      | `#pause`                      |
-| `::: {.incremental}`         | `#pause` between list items   |
-| `{{< pause >}}`              | `#pause`                      |
-| `{{< meanwhile >}}`          | `#meanwhile`                  |
+| Quarto                              | Behaviour                              |
+| ----------------------------------- | -------------------------------------- |
+| `. . .`                             | Pause (`#pause`)                       |
+| `::: {.incremental}`                | Reveal list items one `#pause` at a time |
+| `::: {.columns}` / `.column`        | Side-by-side columns (Typst grid)      |
+| `::: {.notes}`                      | Speaker notes (hidden on the slide)    |
+| `[text]{.button}`                   | Beamer-style button (clickable in a link) |
+| `{{< pause >}}` / `{{< meanwhile >}}` | `#pause` / `#meanwhile`              |
 
-Native Touying code works anywhere, e.g. inline `#pause`. For multi-step
-reveals with `uncover` / `only` / `alternatives`:
+Columns honour the `width` attribute:
+
+```markdown
+:::: {.columns}
+::: {.column width="40%"}
+Left
+:::
+::: {.column width="60%"}
+Right
+:::
+::::
+```
+
+## Native Touying
+
+Touying code works anywhere, e.g. inline `#pause`. For multi-step reveals with
+`uncover` / `only` / `alternatives`:
 
 ```markdown
 ::: {.complex-anim repeat="4"}

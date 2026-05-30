@@ -41,6 +41,25 @@ Then this appears.
 - Revealed third
 :::
 
+## Columns
+
+:::: {.columns}
+::: {.column width="50%"}
+Left column.
+:::
+::: {.column width="50%"}
+Right column.
+:::
+::::
+
+::: {.notes}
+These are speaker notes -- hidden on the slide.
+:::
+
+## Cross-references
+
+Jump to the [[summary]{.button}](#sec-end) with a Beamer-style button.
+
 ## Native Touying Animation
 
 Inline pauses with native syntax: here #pause and now more.
@@ -50,3 +69,7 @@ Inline pauses with native syntax: here #pause and now more.
 ::: {.complex-anim repeat="4"}
 At subslide #only("2-")[two and later] and #uncover("3-")[three and later].
 :::
+
+## Summary {#sec-end}
+
+That's the tour.
