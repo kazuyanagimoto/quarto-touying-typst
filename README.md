@@ -1,5 +1,8 @@
 # quarto-touying-typst
 
+[![Render](https://github.com/kazuyanagimoto/quarto-touying-typst/actions/workflows/render.yml/badge.svg)](https://github.com/kazuyanagimoto/quarto-touying-typst/actions/workflows/render.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A drop-in Quarto extension for building slides with
 [Touying](https://touying-typ.github.io), the Beamer-like presentation
 framework for Typst. This is the *base* extension: it wires Quarto's slide
@@ -9,6 +12,8 @@ build on top of this one.
 
 > Status: **prototype** (v0.0.1). The bridge and theme selection work; the
 > surface area is intentionally small.
+
+![A slide rendered with the metropolis theme](static/thumbnail.png)
 
 ## Install
 
