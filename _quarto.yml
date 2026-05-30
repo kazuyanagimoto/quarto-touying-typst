@@ -3,6 +3,7 @@ project:
   output-dir: _site
   render:
     - index.qmd
+    - tutorial.qmd
     - examples/*.qmd
   resources:
     - slides/
@@ -12,6 +13,11 @@ website:
   description: "Touying slides for Quarto, with a gallery of built-in themes."
   repo-url: https://github.com/kazuyanagimoto/quarto-touying-typst
   navbar:
+    left:
+      - text: Gallery
+        href: index.qmd
+      - text: Tutorial
+        href: tutorial.qmd
     right:
       - icon: github
         href: https://github.com/kazuyanagimoto/quarto-touying-typst
@@ -20,4 +26,5 @@ format:
   html:
     theme: cosmo
     css: styles.css
-    toc: false
+    toc: true
+    toc-depth: 3

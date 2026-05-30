@@ -1,6 +1,7 @@
 ---
 title: "quarto-touying-typst"
 subtitle: "Touying slides for Quarto, with selectable built-in themes"
+toc: false
 ---
 
 A drop-in Quarto extension that bridges Quarto's slide syntax onto
@@ -11,6 +12,8 @@ for installation and usage.
 ```bash
 quarto add kazuyanagimoto/quarto-touying-typst
 ```
+
+New here? Start with the [Tutorial](tutorial.qmd).
 
 ## Theme gallery
 
