@@ -3,12 +3,12 @@
 // Beamer-style goto button (like `\beamergotobutton`). Picks up the active
 // theme's primary colour via `touying-fn-wrapper`. Themes may override it.
 #let _button(self: none, body) = box(
-  fill: self.colors.primary,
-  inset: (x: 0.5em, y: 0.3em),
-  radius: 0.25em,
-  baseline: 0.25em,
+  fill: self.colors.primary.lighten(70%),
+  inset: (x: 0.5em, y: 0.15em),
+  radius: 0.6em,
+  baseline: 0.2em,
 )[
-  #set text(size: 0.7em, fill: white)
+  #set text(size: 0.55em, fill: self.colors.primary, weight: "medium")
   #sym.triangle.filled.r~#body
 ]
 #let button(body) = touying-fn-wrapper(_button.with(body))
