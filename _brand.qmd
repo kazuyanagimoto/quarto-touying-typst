@@ -1,0 +1,21 @@
+---
+title: Brand test
+format: touying-typst
+theme: clean
+author:
+  - name: Ada Lovelace
+date: today
+brand:
+  color:
+    primary: "#1f6feb"
+    secondary: "#cf222e"
+    foreground: "#1b1f24"
+---
+
+# Section
+
+## Heading
+
+Body text with [an alert in secondary]{.alert}.
+
+- A bullet (marker uses primary)

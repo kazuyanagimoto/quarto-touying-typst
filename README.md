@@ -101,6 +101,12 @@ option; positive/negative values shift every heading by that amount.
 Available themes: `metropolis`, `university`, `dewdrop`, `aqua`, `stargazer`,
 `simple`, `default`, and `clean`.
 
+Colours and fonts can be set with `accent` / `accent2` / `jet` / `sansfont` /
+`mainfont` / `fontsize`, or via a [Quarto brand](https://quarto.org/docs/authoring/brand.html)
+(`_brand.yml`): `brand.color.*` sets the palette for every theme and
+`brand.typography.*` sets the fonts for `clean`. Explicit options win over
+`brand`.
+
 `clean` is a richer theme developed in this repo (it will eventually move to its
 own repository). Its title slide shows structured authors (name, affiliation,
 email, ORCID), and it adds emphasis classes:

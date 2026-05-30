@@ -220,10 +220,31 @@ You can nudge colours and fonts from the front matter:
 ```yaml
 accent: "1f6feb"       # primary colour (hex, no #)
 accent2: "9a2515"      # secondary colour
+jet: "1b1f24"          # body text colour
 sansfont: "Fira Sans"  # heading font
 mainfont: "Source Serif"
 fontsize: 22pt
 ```
+
+### Brand
+
+A [Quarto brand](https://quarto.org/docs/authoring/brand.html) (`_brand.yml`
+or a `brand:` key) is picked up automatically as a fallback for the options
+above. `brand.color.primary` / `secondary` / `foreground` set the palette (for
+every theme), and `brand.typography` sets the fonts (for the `clean` theme):
+
+```yaml
+brand:
+  color:
+    primary: "#1f6feb"
+    secondary: "#cf222e"
+    foreground: "#1b1f24"
+  typography:
+    headings: { family: "Fira Sans", weight: 600 }
+    base: { family: "Source Serif 4" }
+```
+
+Explicit `accent` / `sansfont` / … always take precedence over `brand`.
 
 ## Emphasis and buttons
 

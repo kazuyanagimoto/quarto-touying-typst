@@ -66,15 +66,20 @@
 // Theme dispatcher -----------------------------------------------------------
 // Normalises a common set of options onto each theme's own interface, so the
 // show rule in typst-show.typ stays theme-agnostic.
+// Colour/font options come from explicit YAML or, as a fallback, from `brand`
+// (see typst-show.typ). `foreground` is the body text colour, `accent` the
+// primary, `accent2` the secondary.
 #let theme-show(
   name,
   aspect-ratio: "16-9",
   handout: false,
   accent: none,
   accent2: none,
+  foreground: none,
   sansfont: none,
   mainfont: none,
   fontsize: none,
+  font-weight-heading: none,
   ..info-args,
 ) = {
   let base = touying-themes.at(name)
@@ -85,15 +90,19 @@
     named.insert("handout", handout)
     if accent != none { named.insert("color-accent", accent) }
     if accent2 != none { named.insert("color-accent2", accent2) }
+    if foreground != none { named.insert("color-jet", foreground) }
     if sansfont != none { named.insert("font-family-heading", sansfont) }
     if mainfont != none { named.insert("font-family-body", mainfont) }
     if fontsize != none { named.insert("font-size", fontsize) }
+    if font-weight-heading != none { named.insert("font-weight-heading", font-weight-heading) }
   } else {
-    // Built-in themes take config-* positional args.
+    // Built-in themes take config-* positional args. Colours map onto the
+    // touying palette; built-in themes don't expose font knobs.
     if handout { cfg.push(config-common(handout: true)) }
     let colors = (:)
     if accent != none { colors.insert("primary", accent) }
     if accent2 != none { colors.insert("secondary", accent2) }
+    if foreground != none { colors.insert("neutral-darkest", foreground) }
     if colors.len() > 0 { cfg.push(config-colors(..colors)) }
   }
   base.with(..named, ..cfg)

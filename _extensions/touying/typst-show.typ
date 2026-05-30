@@ -12,11 +12,28 @@
   theme-name,
   aspect-ratio: "$if(aspect-ratio)$$aspect-ratio$$else$16-9$endif$",
   $if(handout)$ handout: true, $endif$
-  $if(accent)$ accent: rgb("$accent$"), $endif$
-  $if(accent2)$ accent2: rgb("$accent2$"), $endif$
-  $if(sansfont)$ sansfont: ("$sansfont$",), $endif$
-  $if(mainfont)$ mainfont: ("$mainfont$",), $endif$
-  $if(fontsize)$ fontsize: $fontsize$, $endif$
+  // Colours and fonts: explicit option first, then `brand` (_brand.yml) ------
+  $if(accent)$ accent: rgb("$accent$"),
+  $elseif(brand.color.primary)$ accent: brand-color.primary,
+  $endif$
+  $if(accent2)$ accent2: rgb("$accent2$"),
+  $elseif(brand.color.secondary)$ accent2: brand-color.secondary,
+  $endif$
+  $if(jet)$ foreground: rgb("$jet$"),
+  $elseif(brand.color.foreground)$ foreground: brand-color.foreground,
+  $endif$
+  $if(sansfont)$ sansfont: ("$sansfont$",),
+  $elseif(brand.typography.headings.family)$ sansfont: $brand.typography.headings.family$,
+  $endif$
+  $if(mainfont)$ mainfont: ("$mainfont$",),
+  $elseif(brand.typography.base.family)$ mainfont: $brand.typography.base.family$,
+  $endif$
+  $if(fontsize)$ fontsize: $fontsize$,
+  $elseif(brand.typography.base.size)$ fontsize: $brand.typography.base.size$,
+  $endif$
+  $if(font-weight-heading)$ font-weight-heading: "$font-weight-heading$",
+  $elseif(brand.typography.headings.weight)$ font-weight-heading: $brand.typography.headings.weight$,
+  $endif$
   // Info shared by every theme's title slide ---------------------------------
   title: [$title$],
   $if(subtitle)$ subtitle: [$subtitle$], $endif$
