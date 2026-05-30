@@ -29,7 +29,7 @@
     $for(by-author)$
     (
       name: [$it.name.literal$],
-      affiliation: $if(it.affiliations)$[$for(it.affiliations)$$it.name$$sep$, $endfor$]$else$none$endif$,
+      affiliation: [$for(it.affiliations)$$it.name$$sep$, $endfor$],
       email: [$it.email$],
       orcid: [$it.orcid$],
     ),
