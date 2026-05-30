@@ -1,0 +1,28 @@
+---
+title: "quarto-touying-typst"
+subtitle: "Touying slides for Quarto, with selectable built-in themes"
+---
+
+A drop-in Quarto extension that bridges Quarto's slide syntax onto
+[Touying](https://touying-typ.github.io). Pick any built-in theme with a single
+`theme:` option. See the [README](https://github.com/kazuyanagimoto/quarto-touying-typst)
+for installation and usage.
+
+```bash
+quarto add kazuyanagimoto/quarto-touying-typst
+```
+
+## Theme gallery
+
+Each card links to a PDF rendered from the [same source](https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/examples/_slides.qmd)
+with a different `theme:`.
+
+::: {.gallery}
+<a class="card" href="examples/metropolis.pdf"><img src="images/metropolis.png" alt="metropolis theme"><div class="label">metropolis</div></a>
+<a class="card" href="examples/university.pdf"><img src="images/university.png" alt="university theme"><div class="label">university</div></a>
+<a class="card" href="examples/dewdrop.pdf"><img src="images/dewdrop.png" alt="dewdrop theme"><div class="label">dewdrop</div></a>
+<a class="card" href="examples/aqua.pdf"><img src="images/aqua.png" alt="aqua theme"><div class="label">aqua</div></a>
+<a class="card" href="examples/stargazer.pdf"><img src="images/stargazer.png" alt="stargazer theme"><div class="label">stargazer</div></a>
+<a class="card" href="examples/simple.pdf"><img src="images/simple.png" alt="simple theme"><div class="label">simple</div></a>
+<a class="card" href="examples/default.pdf"><img src="images/default.png" alt="default theme"><div class="label">default</div></a>
+:::

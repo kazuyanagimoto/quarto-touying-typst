@@ -18,8 +18,11 @@ jobs:
       - name: Render template (smoke test)
         run: quarto render template.qmd --to touying-typst
 
-      - name: Upload rendered PDF
+      - name: Render gallery site (all themes)
+        run: quarto render
+
+      - name: Upload rendered site
         uses: actions/upload-artifact@v5
         with:
-          name: template-pdf
-          path: template.pdf
+          name: site
+          path: _site

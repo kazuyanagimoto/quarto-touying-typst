@@ -1,0 +1,12 @@
+---
+title: "university"
+subtitle: "A Touying theme for Quarto"
+format: touying-typst
+theme: university
+author:
+  - name: Quarto + Touying
+date: today
+date-format: long
+---
+
+{{< include _slides.qmd >}}

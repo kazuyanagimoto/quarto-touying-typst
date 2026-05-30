@@ -1,0 +1,21 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - examples/*.qmd
+
+website:
+  title: "quarto-touying-typst"
+  description: "Touying slides for Quarto, with a gallery of built-in themes."
+  repo-url: https://github.com/kazuyanagimoto/quarto-touying-typst
+  navbar:
+    right:
+      - icon: github
+        href: https://github.com/kazuyanagimoto/quarto-touying-typst
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: false

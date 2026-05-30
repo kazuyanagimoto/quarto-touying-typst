@@ -21,6 +21,9 @@ build on top of this one.
 quarto add kazuyanagimoto/quarto-touying-typst
 ```
 
+A [theme gallery](examples/) of the same slides rendered with each built-in
+theme is in [`examples/`](examples/); build it locally with `quarto preview`.
+
 Or start from the template:
 
 ```bash
@@ -54,8 +57,28 @@ Content goes here.
 - `##` (level-2 heading) starts a new **slide**
 
 This mirrors Touying's native `=` / `==`, so Quarto's structure maps onto
-Touying with no extra markup. Use a `#` section before your `##` slides
-(otherwise the shallowest heading is promoted to a section divider).
+Touying with no extra markup.
+
+### Heading levels and `shift-heading-level-by`
+
+By default Quarto promotes the shallowest heading to level 1, so a deck that
+uses **only** `##` has those `##` turned into section dividers. Two ways to get
+slides:
+
+- Put a `#` section before your `##` slides (the convention used throughout
+  this README), **or**
+- Set `shift-heading-level-by: 0` in the front matter to disable the
+  promotion. Then `##` always stays a slide -- handy when porting a reveal.js
+  deck that only uses `##`.
+
+```yaml
+format: touying-typst
+shift-heading-level-by: 0   # `##` stays a slide even without a leading `#`
+```
+
+This is Pandoc's
+[`--shift-heading-level-by`](https://pandoc.org/MANUAL.html#option--shift-heading-level-by)
+option; positive/negative values shift every heading by that amount.
 
 ## Options
 

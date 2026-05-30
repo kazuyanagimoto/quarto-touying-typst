@@ -1,0 +1,37 @@
+# Overview
+
+## Headings Are Slides
+
+- A `#` heading starts a **section**
+- A `##` heading starts a **slide**
+
+. . .
+
+Pauses with `. . .` work too.
+
+## Columns
+
+:::: {.columns}
+::: {.column width="50%"}
+A left column, half the width.
+:::
+::: {.column width="50%"}
+A right column next to it.
+:::
+::::
+
+## Incremental
+
+::: {.incremental}
+- Revealed first
+- Then second
+- Then third
+:::
+
+## Buttons and Cross-references
+
+Jump to the [[summary]{.button}](#sec-end) with a Beamer-style button.
+
+## Summary {#sec-end}
+
+Built with [Touying](https://touying-typ.github.io) and Quarto.

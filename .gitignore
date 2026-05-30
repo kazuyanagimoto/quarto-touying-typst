@@ -3,3 +3,5 @@
 *_files/
 .DS_Store
 template.pdf
+
+**/*.quarto_ipynb
