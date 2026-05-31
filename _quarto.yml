@@ -3,6 +3,7 @@ project:
   output-dir: _site
   render:
     - index.qmd
+    - gallery.qmd
     - tutorial.qmd
     - examples/*.qmd
   resources:
@@ -18,7 +19,7 @@ website:
       - text: Tutorial
         href: tutorial.qmd
       - text: Gallery
-        href: index.qmd
+        href: gallery.qmd
     right:
       - icon: github
         href: https://github.com/kazuyanagimoto/quarto-touying-typst
@@ -29,3 +30,4 @@ format:
     css: styles.css
     toc: true
     toc-depth: 3
+    lightbox: true

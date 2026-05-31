@@ -26,7 +26,7 @@ right in the browser. Build and preview it locally:
 
 ```bash
 just decks      # render each theme to a navigable HTML deck (needs `pip install touying`)
-quarto preview  # serve the gallery at index.qmd
+quarto preview  # serve the site (gallery at gallery.qmd)
 ```
 
 The navigable decks are produced by keeping the Quarto-generated Typst
