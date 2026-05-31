@@ -9,14 +9,14 @@
 // Beamer-style goto button (like `\beamergotobutton`). Picks up the active
 // theme's primary colour via `touying-fn-wrapper`. Themes may override it.
 #let _button(self: none, body) = box(
-  fill: self.colors.primary.lighten(70%),
+  fill: self.colors.primary,
   inset: (x: 0.35em, y: 0.2em),
   radius: 0.5em,
   baseline: 0.05em,
 )[
   #set text(
     size: 0.55em,
-    fill: self.colors.primary,
+    fill: white,
     weight: "medium",
     top-edge: "cap-height",
     bottom-edge: "baseline",

@@ -15,10 +15,10 @@ website:
   repo-url: https://github.com/kazuyanagimoto/quarto-touying-typst
   navbar:
     left:
-      - text: Gallery
-        href: index.qmd
       - text: Tutorial
         href: tutorial.qmd
+      - text: Gallery
+        href: index.qmd
     right:
       - icon: github
         href: https://github.com/kazuyanagimoto/quarto-touying-typst
@@ -29,4 +29,3 @@ format:
     css: styles.css
     toc: true
     toc-depth: 3
-    lightbox: true
