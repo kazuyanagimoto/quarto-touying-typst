@@ -10,11 +10,17 @@
 // theme's primary colour via `touying-fn-wrapper`. Themes may override it.
 #let _button(self: none, body) = box(
   fill: self.colors.primary.lighten(70%),
-  inset: (x: 0.5em, y: 0.15em),
-  radius: 0.6em,
-  baseline: 0.2em,
+  inset: (x: 0.35em, y: 0.2em),
+  radius: 0.5em,
+  baseline: 0.05em,
 )[
-  #set text(size: 0.55em, fill: self.colors.primary, weight: "medium")
+  #set text(
+    size: 0.55em,
+    fill: self.colors.primary,
+    weight: "medium",
+    top-edge: "cap-height",
+    bottom-edge: "baseline",
+  )
   #sym.triangle.filled.r~#body
 ]
 #let button(body) = touying-fn-wrapper(_button.with(body))
