@@ -208,8 +208,8 @@ Switch the whole look with one option:
 
 ```yaml
 format: touying-typst
-theme: dewdrop   # metropolis | university | dewdrop | aqua | stargazer
-                 # simple | default | clean
+theme: dewdrop   # default | simple | metropolis | dewdrop
+                 # university | aqua | stargazer | clean
 ```
 
 Eight themes ship with the extension. Browse them — and flip through a full deck

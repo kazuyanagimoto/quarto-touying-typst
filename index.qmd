@@ -24,13 +24,13 @@ with a different `theme:` (seven built-in Touying themes plus the in-repo
 arrow keys, or grab the `PDF`.
 
 ::: {.gallery}
+<div class="card"><a class="deck" href="slides/default.html"><img src="images/default.png" alt="default theme"></a><div class="label"><a href="slides/default.html">default</a><a class="pdf" href="examples/default.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/simple.html"><img src="images/simple.png" alt="simple theme"></a><div class="label"><a href="slides/simple.html">simple</a><a class="pdf" href="examples/simple.pdf">PDF</a></div></div>
 <div class="card"><a class="deck" href="slides/metropolis.html"><img src="images/metropolis.png" alt="metropolis theme"></a><div class="label"><a href="slides/metropolis.html">metropolis</a><a class="pdf" href="examples/metropolis.pdf">PDF</a></div></div>
-<div class="card"><a class="deck" href="slides/university.html"><img src="images/university.png" alt="university theme"></a><div class="label"><a href="slides/university.html">university</a><a class="pdf" href="examples/university.pdf">PDF</a></div></div>
 <div class="card"><a class="deck" href="slides/dewdrop.html"><img src="images/dewdrop.png" alt="dewdrop theme"></a><div class="label"><a href="slides/dewdrop.html">dewdrop</a><a class="pdf" href="examples/dewdrop.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/university.html"><img src="images/university.png" alt="university theme"></a><div class="label"><a href="slides/university.html">university</a><a class="pdf" href="examples/university.pdf">PDF</a></div></div>
 <div class="card"><a class="deck" href="slides/aqua.html"><img src="images/aqua.png" alt="aqua theme"></a><div class="label"><a href="slides/aqua.html">aqua</a><a class="pdf" href="examples/aqua.pdf">PDF</a></div></div>
 <div class="card"><a class="deck" href="slides/stargazer.html"><img src="images/stargazer.png" alt="stargazer theme"></a><div class="label"><a href="slides/stargazer.html">stargazer</a><a class="pdf" href="examples/stargazer.pdf">PDF</a></div></div>
-<div class="card"><a class="deck" href="slides/simple.html"><img src="images/simple.png" alt="simple theme"></a><div class="label"><a href="slides/simple.html">simple</a><a class="pdf" href="examples/simple.pdf">PDF</a></div></div>
-<div class="card"><a class="deck" href="slides/default.html"><img src="images/default.png" alt="default theme"></a><div class="label"><a href="slides/default.html">default</a><a class="pdf" href="examples/default.pdf">PDF</a></div></div>
 <div class="card"><a class="deck" href="slides/clean.html"><img src="images/clean.png" alt="clean theme"></a><div class="label"><a href="slides/clean.html">clean</a><a class="pdf" href="examples/clean.pdf">PDF</a></div></div>
 :::
 

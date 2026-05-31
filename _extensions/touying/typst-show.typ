@@ -6,7 +6,7 @@
 )
 
 // Apply the selected theme through the dispatcher ----------------------------
-#let theme-name = "$if(theme)$$theme$$else$metropolis$endif$"
+#let theme-name = "$if(theme)$$theme$$else$default$endif$"
 
 #show: theme-show(
   theme-name,

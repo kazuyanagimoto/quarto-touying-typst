@@ -1,4 +1,4 @@
-themes := "metropolis university dewdrop aqua stargazer simple default clean"
+themes := "default simple metropolis dewdrop university aqua stargazer clean"
 
 # Render the website (gallery index + per-theme example decks)
 render:

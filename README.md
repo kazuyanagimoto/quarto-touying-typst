@@ -47,7 +47,7 @@ quarto use template kazuyanagimoto/quarto-touying-typst
 title: My Talk
 subtitle: A subtitle
 format: touying-typst
-theme: metropolis      # metropolis | university | dewdrop | aqua | stargazer
+theme: default         # default | simple | metropolis | dewdrop | university | aqua | stargazer | clean
 aspect-ratio: "16-9"
 author:
   - name: Your Name
@@ -94,12 +94,13 @@ option; positive/negative values shift every heading by that amount.
 
 | Option         | Default      | Description                                            |
 | -------------- | ------------ | ----------------------------------------------------- |
-| `theme`        | `metropolis` | Built-in Touying theme to use                         |
+| `theme`        | `default`    | Built-in Touying theme to use                         |
 | `aspect-ratio` | `16-9`       | Slide aspect ratio (`16-9`, `4-3`)                    |
 | `handout`      | `false`      | Collapse all incremental reveals into a handout       |
 
-Available themes: `metropolis`, `university`, `dewdrop`, `aqua`, `stargazer`,
-`simple`, `default`, and `clean`.
+Available themes (in Touying's order): `default`, `simple`, `metropolis`,
+`dewdrop`, `university`, `aqua`, `stargazer`, and `clean`. The default is
+`default`.
 
 Colours and fonts can be set with `accent` / `accent2` / `jet` / `sansfont` /
 `mainfont` / `fontsize`, or via a [Quarto brand](https://quarto.org/docs/authoring/brand.html)

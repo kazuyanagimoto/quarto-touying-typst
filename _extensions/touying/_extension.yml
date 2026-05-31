@@ -16,5 +16,5 @@ contributes:
       format-resources:
         - touying-clean.typ
       # --- Sensible defaults (override in your document front matter) ----------
-      theme: metropolis
+      theme: default
       aspect-ratio: "16-9"

@@ -43,23 +43,23 @@
 // Selectable themes ----------------------------------------------------------
 // Built-in Touying themes plus the in-repo `clean` theme.
 #let touying-themes = (
+  default: themes.default.default-theme,
+  simple: themes.simple.simple-theme,
   metropolis: themes.metropolis.metropolis-theme,
-  university: themes.university.university-theme,
   dewdrop: themes.dewdrop.dewdrop-theme,
+  university: themes.university.university-theme,
   aqua: themes.aqua.aqua-theme,
   stargazer: themes.stargazer.stargazer-theme,
-  simple: themes.simple.simple-theme,
-  default: themes.default.default-theme,
   clean: clean.clean-theme,
 )
 #let touying-title-slides = (
+  default: generic-title-slide,
+  simple: generic-title-slide,
   metropolis: themes.metropolis.title-slide,
-  university: themes.university.title-slide,
   dewdrop: themes.dewdrop.title-slide,
+  university: themes.university.title-slide,
   aqua: themes.aqua.title-slide,
   stargazer: themes.stargazer.title-slide,
-  simple: generic-title-slide,
-  default: generic-title-slide,
   clean: clean.title-slide,
 )
 

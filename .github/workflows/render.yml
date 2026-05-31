@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  THEMES: "metropolis university dewdrop aqua stargazer simple default clean"
+  THEMES: "default simple metropolis dewdrop university aqua stargazer clean"
 
 jobs:
   build:

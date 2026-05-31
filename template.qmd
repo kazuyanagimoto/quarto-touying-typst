@@ -2,7 +2,7 @@
 title: Touying for Quarto
 subtitle: A drop-in Touying base extension
 format: touying-typst
-theme: metropolis           # metropolis | university | dewdrop | aqua | stargazer
+theme: default              # default | simple | metropolis | dewdrop | university | aqua | stargazer | clean
 aspect-ratio: "16-9"
 author:
   - name: Your Name
