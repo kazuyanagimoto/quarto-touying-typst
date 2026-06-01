@@ -10,26 +10,9 @@ function Para(el)
   end
 end
 
--- Inline command spans: `[text]{.alert}`, `[text]{.fg options='fill: red'}`,
--- `[text]{.bg}`, `[[label]{.button}](#id)`. An `options` attribute is passed as
--- the Typst call's named arguments.
-local inline_commands = { "alert", "fg", "bg", "button" }
-
-function Span(el)
-  if not quarto.doc.is_format("typst") then
-    return nil
-  end
-  for _, cmd in ipairs(inline_commands) do
-    if el.classes:includes(cmd) then
-      local opts = el.attributes["options"]
-      local open = opts and ("#" .. cmd .. "(" .. opts .. ")[") or ("#" .. cmd .. "[")
-      local inlines = pandoc.List({ pandoc.RawInline('typst', open) })
-      inlines:extend(el.content)
-      inlines:insert(pandoc.RawInline('typst', ']'))
-      return inlines
-    end
-  end
-end
+-- Inline commands (`.alert` / `.fg` / `.bg` / `.button` / ...) and block
+-- environments (`.only` / `.uncover` / `.complex-anim` / ...) are handled by
+-- environment.lua.
 
 -- `::: {.columns}` / `::: {.column width="40%"}` -> a Typst grid.
 local function columns_grid(el)
@@ -69,17 +52,6 @@ local function incremental(el)
   return pandoc.Div(out, el.attr)
 end
 
--- `.complex-anim` exposes Touying's `uncover`/`only`/`alternatives` methods.
-local function complex_anim(el)
-  local repeat_value = el.attributes["repeat"] or "auto"
-  local header = "#slide(repeat: " .. repeat_value ..
-    ", self => [\n#let (uncover, only, alternatives) = utils.methods(self)"
-  local blocks = pandoc.List({ pandoc.RawBlock('typst', header) })
-  blocks:extend(el.content)
-  blocks:insert(pandoc.RawBlock('typst', '\n])'))
-  return blocks
-end
-
 function Div(el)
   if not quarto.doc.is_format("typst") then
     return nil
@@ -93,8 +65,5 @@ function Div(el)
   end
   if el.classes:includes("incremental") then
     return incremental(el)
-  end
-  if el.classes:includes("complex-anim") then
-    return complex_anim(el)
   end
 end

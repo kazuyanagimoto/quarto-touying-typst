@@ -123,6 +123,17 @@ First this shows.
 Then this appears.
 ```
 
+`.only` / `.uncover` reveal a span or a whole block from a given sub-slide on
+(the `options` are passed straight to the Touying function):
+
+```markdown
+[shown from sub-slide 2]{.only options='"2-"'}
+
+::: {.uncover options='"3-"'}
+This block is uncovered on sub-slide 3.
+:::
+```
+
 For fine-grained control (revealing across multiple sub-slides, hiding rather
 than appending), use Touying's `uncover` / `only` / `alternatives` inside a
 `.complex-anim` block:
@@ -260,15 +271,35 @@ The extension adds a few inline helpers:
 `.alert` works in every theme; `.fg` / `.bg` / `.button` are theme-independent
 and pick up the active theme's colours.
 
+These are *commands* (inline) and *environments* (block) — `[x]{.cmd}` becomes
+`#cmd()[x]` and `::: {.env}` becomes `#env()[…]`, with any `options` passed
+through. Map your own to any Typst function from the front matter:
+
+```yaml
+commands:                 # inline spans  ->  #note()[…]
+  - note
+environments:             # block divs    ->  #boxed()[…]
+  boxed: rect             # class `.boxed` calls Typst's `rect`
+```
+
 ## Native Touying
 
 Anything Touying can do is available as raw Typst. Inline `#pause`,
 `#meanwhile`, and any Touying function can be dropped straight into your
-Markdown. Two useful front-matter options:
+Markdown. A few extras:
 
 ```yaml
 aspect-ratio: "16-9"   # or "4-3"
 handout: true          # collapse every incremental reveal into one slide
+```
+
+Mark the start of back-matter with the `appendix` shortcode — it freezes the
+slide counter so appendix slides don't inflate the total in the footer:
+
+```markdown
+{{< appendix >}}
+
+## Extra slide
 ```
 
 ## Learning more

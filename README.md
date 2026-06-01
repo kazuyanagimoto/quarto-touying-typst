@@ -131,7 +131,9 @@ The goal is for Quarto's presentation syntax to work as-is. Currently bridged:
 | `::: {.columns}` / `.column`        | Side-by-side columns (Typst grid)      |
 | `::: {.notes}`                      | Speaker notes (hidden on the slide)    |
 | `[text]{.button}`                   | Beamer-style button (clickable in a link) |
+| `[text]{.only options='"2-"'}` / `.uncover` | Reveal a span/block from a sub-slide on |
 | `{{< pause >}}` / `{{< meanwhile >}}` | `#pause` / `#meanwhile`              |
+| `{{< appendix >}}`                  | Begin back-matter (freezes the slide counter) |
 
 Columns honour the `width` attribute:
 
@@ -156,6 +158,11 @@ Touying code works anywhere, e.g. inline `#pause`. For multi-step reveals with
 At subslide #only("2-")[two and later] and #uncover("3-")[three and later].
 :::
 ```
+
+`[x]{.cmd}` / `::: {.env}` map to Typst calls `#cmd()[x]` / `#env()[…]`
+(`.alert` / `.fg` / `.bg` / `.button` / `.only` / `.uncover` are built in). Add
+your own with `commands:` / `environments:` document metadata (a list of names,
+or `name: typst-function` pairs).
 
 ## Adding a theme
 

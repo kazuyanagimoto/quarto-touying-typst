@@ -10,6 +10,7 @@ contributes:
         - shortcodes.lua
       filters:
         - touying.lua
+        - environment.lua
       template-partials:
         - typst-template.typ
         - typst-show.typ
