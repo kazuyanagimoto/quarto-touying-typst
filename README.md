@@ -13,7 +13,7 @@ build on top of this one.
 > Status: **prototype** (v0.0.1). The bridge and theme selection work; the
 > surface area is intentionally small.
 
-![A slide rendered with the metropolis theme](static/thumbnail.png)
+![A slide rendered with the metropolis theme](https://kazuyanagimoto.com/quarto-touying-typst/static/thumbnail.png)
 
 ## Install
 
@@ -26,7 +26,7 @@ right in the browser. Build and preview it locally:
 
 ```bash
 just decks      # render each theme to a navigable HTML deck (needs `pip install touying`)
-quarto preview  # serve the site (gallery at gallery.qmd)
+just preview    # serve the docs site (home, gallery, tutorial)
 ```
 
 The navigable decks are produced by keeping the Quarto-generated Typst

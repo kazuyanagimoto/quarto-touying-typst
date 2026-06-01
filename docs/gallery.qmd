@@ -1,0 +1,65 @@
+---
+title: "Gallery"
+toc: false
+---
+
+Every deck is rendered from the [same source](https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/examples/_slides.qmd)
+with a different `theme:` (seven built-in Touying themes plus the in-repo
+`clean` theme). Click a card to **flip through the slides in your browser**
+(navigable HTML exported with
+[touying-exporter](https://github.com/touying-typ/touying-exporter)); use the
+arrow keys, or grab the `PDF`.
+
+::: {.gallery}
+<div class="card"><a class="deck" href="slides/default.html"><img src="static/images/default.png" alt="default theme"></a><div class="label"><a href="slides/default.html">default</a><a class="pdf" href="gallery/default.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/simple.html"><img src="static/images/simple.png" alt="simple theme"></a><div class="label"><a href="slides/simple.html">simple</a><a class="pdf" href="gallery/simple.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/metropolis.html"><img src="static/images/metropolis.png" alt="metropolis theme"></a><div class="label"><a href="slides/metropolis.html">metropolis</a><a class="pdf" href="gallery/metropolis.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/dewdrop.html"><img src="static/images/dewdrop.png" alt="dewdrop theme"></a><div class="label"><a href="slides/dewdrop.html">dewdrop</a><a class="pdf" href="gallery/dewdrop.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/university.html"><img src="static/images/university.png" alt="university theme"></a><div class="label"><a href="slides/university.html">university</a><a class="pdf" href="gallery/university.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/aqua.html"><img src="static/images/aqua.png" alt="aqua theme"></a><div class="label"><a href="slides/aqua.html">aqua</a><a class="pdf" href="gallery/aqua.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/stargazer.html"><img src="static/images/stargazer.png" alt="stargazer theme"></a><div class="label"><a href="slides/stargazer.html">stargazer</a><a class="pdf" href="gallery/stargazer.pdf">PDF</a></div></div>
+<div class="card"><a class="deck" href="slides/clean.html"><img src="static/images/clean.png" alt="clean theme"></a><div class="label"><a href="slides/clean.html">clean</a><a class="pdf" href="gallery/clean.pdf">PDF</a></div></div>
+:::
+
+```{=html}
+<div class="deck-modal" id="deck-lightbox" aria-hidden="true">
+  <div class="frame">
+    <button class="close" id="deck-close" aria-label="Close">&times;</button>
+    <iframe id="deck-iframe" title="Slide deck" allowfullscreen></iframe>
+  </div>
+</div>
+<script>
+(function () {
+  const box = document.getElementById('deck-lightbox');
+  const frame = document.getElementById('deck-iframe');
+  const close = document.getElementById('deck-close');
+
+  function open(url) {
+    frame.src = url;
+    box.classList.add('open');
+    box.setAttribute('aria-hidden', 'false');
+    // focus the iframe so arrow keys drive the deck
+    frame.addEventListener('load', () => {
+      try { frame.contentWindow.focus(); } catch (e) {}
+    }, { once: true });
+  }
+  function shut() {
+    box.classList.remove('open');
+    box.setAttribute('aria-hidden', 'true');
+    frame.src = 'about:blank';
+  }
+
+  document.querySelectorAll('.gallery a[href$=".html"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      open(a.getAttribute('href'));
+    });
+  });
+  close.addEventListener('click', shut);
+  box.addEventListener('click', (e) => { if (e.target === box) shut(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && box.classList.contains('open')) shut();
+  });
+})();
+</script>
+```

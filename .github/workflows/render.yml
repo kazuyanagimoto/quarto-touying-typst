@@ -40,19 +40,19 @@ jobs:
 
       - name: Build navigable HTML decks
         run: |
-          mkdir -p slides
+          mkdir -p docs/slides
           for th in $THEMES; do
-            quarto render examples/$th.qmd --to touying-typst -M keep-typ:true -o $th.pdf
-            touying compile examples/$th.typ --format html --output slides/$th.html
+            quarto render docs/gallery/$th.qmd --to touying-typst -M keep-typ:true
+            touying compile docs/gallery/$th.typ --format html --output docs/slides/$th.html
           done
 
       - name: Render gallery site
-        run: quarto render
+        run: quarto render docs
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: docs/_site
 
   deploy:
     needs: build

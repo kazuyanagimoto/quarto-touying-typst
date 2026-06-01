@@ -70,9 +70,9 @@ Slides are delineated by Markdown headings, exactly like Touying's native
 The `#` heading produces a section divider, and each `##` becomes a slide:
 
 ::: {layout-ncol=2}
-![`# In the morning` → a section divider](images/tutorial/section.png)
+![`# In the morning` → a section divider](static/images/tutorial/section.png)
 
-![`## Getting up` → a content slide](images/tutorial/slide.png)
+![`## Getting up` → a content slide](static/images/tutorial/slide.png)
 :::
 
 ### Title slide
@@ -80,7 +80,7 @@ The `#` heading produces a section divider, and each `##` becomes a slide:
 A title slide is generated automatically from the `title`, `subtitle`,
 `author`, and `date` fields in your YAML front matter.
 
-![The title slide for the deck above](images/tutorial/title.png){width=70%}
+![The title slide for the deck above](static/images/tutorial/title.png){width=70%}
 
 The `clean` theme also renders structured authors with affiliation, email, and
 ORCID — see the [gallery](index.qmd).
@@ -110,7 +110,7 @@ To reveal content step by step, wrap it in a `.incremental` div:
 :::
 ```
 
-![Each item appears on its own step](images/tutorial/incremental.png)
+![Each item appears on its own step](static/images/tutorial/incremental.png)
 
 You can also break *anywhere* with a pause marker — three dots on their own
 line:
@@ -148,7 +148,7 @@ Right column, a little wider.
 ::::
 ```
 
-![Columns honour the `width` attribute](images/tutorial/columns.png)
+![Columns honour the `width` attribute](static/images/tutorial/columns.png)
 
 ## Speaker notes
 
@@ -177,7 +177,7 @@ Inline `$E = mc^2$` and display math render with Typst's typesetting:
 $$\int_0^1 x^2 \, dx = \frac{1}{3}$$
 ```
 
-![](images/tutorial/math.png)
+![](static/images/tutorial/math.png)
 
 ### Code blocks
 
@@ -190,7 +190,7 @@ def greet(name):
 ```
 ````
 
-![](images/tutorial/code.png)
+![](static/images/tutorial/code.png)
 
 Executable code works too — add an R or Python chunk and Quarto runs it,
 embedding the output (figures, tables) into the slide. Source is hidden by

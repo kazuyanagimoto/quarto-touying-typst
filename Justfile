@@ -1,31 +1,31 @@
 themes := "default simple metropolis dewdrop university aqua stargazer clean"
 
-# Render the website (gallery index + per-theme example decks)
+# Render the website (docs/: gallery index, tutorial, per-theme example decks)
 render:
-    quarto render
+    quarto render docs
 
-# Live preview of the gallery
+# Live preview of the website
 preview:
-    quarto preview
+    quarto preview docs
 
 # Regenerate gallery thumbnails (title slide) from the rendered example PDFs
 thumbnails: render
     #!/usr/bin/env bash
     set -euo pipefail
     for th in {{themes}}; do
-      pdftoppm -png -singlefile -r 95 -f 1 -l 1 _site/examples/$th.pdf images/$th
-      echo "images/$th.png"
+      pdftoppm -png -singlefile -r 95 -f 1 -l 1 docs/_site/gallery/$th.pdf docs/static/images/$th
+      echo "docs/static/images/$th.png"
     done
 
 # Build navigable HTML decks (requires `pip install touying` on PATH)
 decks:
     #!/usr/bin/env bash
     set -euo pipefail
-    mkdir -p slides
+    mkdir -p docs/slides
     for th in {{themes}}; do
-      quarto render examples/$th.qmd --to touying-typst -M keep-typ:true -o $th.pdf
-      touying compile examples/$th.typ --format html --output slides/$th.html
-      echo "slides/$th.html"
+      quarto render docs/gallery/$th.qmd --to touying-typst -M keep-typ:true
+      touying compile docs/gallery/$th.typ --format html --output docs/slides/$th.html
+      echo "docs/slides/$th.html"
     done
 
 # Render just the standalone template deck

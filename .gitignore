@@ -1,10 +1,12 @@
-/.quarto/
-/_site/
+.quarto/
+_site/
 *_files/
 .DS_Store
 template.pdf
-examples/*.typ
-examples/*.pdf
-/slides/
+template.typ
+docs/gallery/*.typ
+docs/gallery/*.pdf
+docs/*.pdf
+docs/slides/
 
 **/*.quarto_ipynb

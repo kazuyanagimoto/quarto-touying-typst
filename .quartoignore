@@ -1,12 +1,5 @@
 .github/
-_site/
-static/
-images/
-examples/
-slides/
-index.qmd
-_quarto.yml
-styles.css
+docs/
 Justfile
 README.md
 template.pdf

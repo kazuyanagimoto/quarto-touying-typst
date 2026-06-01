@@ -5,7 +5,7 @@ project:
     - index.qmd
     - gallery.qmd
     - tutorial.qmd
-    - examples/*.qmd
+    - gallery/*.qmd
   resources:
     - slides/
 
