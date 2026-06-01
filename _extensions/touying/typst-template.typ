@@ -16,7 +16,7 @@
   #set text(
     size: 0.55em,
     fill: white,
-    weight: "medium",
+    weight: "regular",
     top-edge: "cap-height",
     bottom-edge: "baseline",
   )
