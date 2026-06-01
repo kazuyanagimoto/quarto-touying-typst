@@ -8,6 +8,7 @@ project:
     - gallery/*.qmd
   resources:
     - slides/
+    - static/thumbnail.png   # referenced by README via absolute URL, so copy it explicitly
 
 website:
   title: "quarto-touying-typst"
