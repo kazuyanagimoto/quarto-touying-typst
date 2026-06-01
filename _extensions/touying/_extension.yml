@@ -13,8 +13,6 @@ contributes:
       template-partials:
         - typst-template.typ
         - typst-show.typ
-      format-resources:
-        - touying-clean.typ
       # --- Sensible defaults (override in your document front matter) ----------
       theme: default
       aspect-ratio: "16-9"
