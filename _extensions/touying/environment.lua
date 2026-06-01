@@ -13,6 +13,7 @@ local classCommands = pandoc.MetaMap({
   ["fg"] = "fg",
   ["bg"] = "bg",
   ["button"] = "button",
+  ["small-cite"] = "small-cite",
   ["only"] = "only",
   ["uncover"] = "uncover",
 })

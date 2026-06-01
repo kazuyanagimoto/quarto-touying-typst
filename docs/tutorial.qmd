@@ -267,9 +267,10 @@ The extension adds a few inline helpers:
 | `[text]{.fg options='fill: rgb("#5D639E")'}`    | Custom-coloured text       |
 | `[text]{.bg}`                                   | Highlighted background     |
 | `[[label]{.button}](#target)`                   | Beamer-style goto button   |
+| `[text]{.small-cite}`                           | Small, muted citation text |
 
-`.alert` works in every theme; `.fg` / `.bg` / `.button` are theme-independent
-and pick up the active theme's colours.
+`.alert` works in every theme; `.fg` / `.bg` / `.button` / `.small-cite` are
+theme-independent and pick up the active theme's colours.
 
 These are *commands* (inline) and *environments* (block) — `[x]{.cmd}` becomes
 `#cmd()[x]` and `::: {.env}` becomes `#env()[…]`, with any `options` passed

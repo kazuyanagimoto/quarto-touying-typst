@@ -24,6 +24,14 @@
 ]
 #let button(body) = touying-fn-wrapper(_button.with(body))
 
+// `.small-cite` -- small, muted inline text for citations/sources.
+#let _small-cite(self: none, it) = text(
+  size: 0.7em,
+  fill: self.colors.neutral-darkest.lighten(30%),
+  it,
+)
+#let small-cite(it) = touying-fn-wrapper(_small-cite.with(it))
+
 // Generic title slide for themes that have no config-info-driven one ---------
 // (e.g. `simple`, `default`). Reads from `self.info`.
 #let generic-title-slide() = touying-slide-wrapper(self => {

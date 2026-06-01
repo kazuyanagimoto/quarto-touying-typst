@@ -117,8 +117,10 @@ email, ORCID), and it adds emphasis classes:
 | `[text]{.alert}`                                | Accent-coloured emphasis        |
 | `[text]{.fg options='fill: rgb("#5D639E")'}`    | Custom-coloured text            |
 | `[text]{.bg}`                                    | Highlighted background          |
+| `[text]{.small-cite}`                            | Small, muted citation text      |
 
-`.alert` works in every theme; `.fg` / `.bg` / `.button` are theme-independent.
+`.alert` works in every theme; `.fg` / `.bg` / `.button` / `.small-cite` are
+theme-independent.
 
 ## Reveal.js-style syntax
 
