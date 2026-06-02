@@ -20,7 +20,11 @@
     top-edge: "cap-height",
     bottom-edge: "baseline",
   )
-  #sym.triangle.filled.r~#body
+  // Vector triangle (font-independent), matching the white button text.
+  #box(baseline: 0em, polygon(
+    fill: white,
+    (0em, 0em), (0.5em, 0.3em), (0em, 0.6em),
+  ))~#body
 ]
 #let button(body) = touying-fn-wrapper(_button.with(body))
 
@@ -150,10 +154,23 @@
       init: (self: none, body) => {
         show link: set text(fill: self.colors.primary)
         // Unordered List
+        // Markers are drawn as vector polygons (not font glyphs) so they render
+        // identically regardless of which fonts the Typst fallback picks up.
         set list(
           indent: 1em,
-          marker: (text(fill: self.colors.primary)[ #sym.triangle.filled.r ],
-                    text(fill: self.colors.primary)[ #sym.arrow]),
+          marker: (
+            // Level 1: filled right-pointing triangle
+            box(baseline: 0.05em, polygon(
+              fill: self.colors.primary,
+              (0em, 0em), (0.42em, 0.24em), (0em, 0.48em),
+            )),
+            // Level 2+: right-pointing arrow
+            box(baseline: 0.05em, polygon(
+              fill: self.colors.primary,
+              (0em, 0.06em), (0.34em, 0.06em), (0.34em, 0em),
+              (0.5em, 0.16em), (0.34em, 0.32em), (0.34em, 0.26em), (0em, 0.26em),
+            )),
+          ),
         )
         // Ordered List
         set enum(

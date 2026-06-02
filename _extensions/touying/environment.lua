@@ -7,6 +7,7 @@
 local classEnvironments = pandoc.MetaMap({
   ["only"] = "only",
   ["uncover"] = "uncover",
+  ["align"] = "align",
 })
 local classCommands = pandoc.MetaMap({
   ["alert"] = "alert",
