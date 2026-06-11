@@ -8,6 +8,20 @@
 // Apply the selected theme through the dispatcher ----------------------------
 #let theme-name = "$if(theme)$$theme$$else$default$endif$"
 
+// Fonts: explicit option first, then `brand`. Set at the document root so they
+// reach EVERY theme -- the built-in Touying themes set text size/weight but not
+// the font family, so they inherit these. (The `clean` theme reads the same
+// values through its own store, so the values agree and there is no conflict.)
+$if(mainfont)$#set text(font: ("$mainfont$",))
+$elseif(brand.typography.base.family)$#set text(font: $brand.typography.base.family$)
+$endif$
+$if(sansfont)$#show heading: set text(font: ("$sansfont$",))
+$elseif(brand.typography.headings.family)$#show heading: set text(font: $brand.typography.headings.family$)
+$endif$
+$if(monofont)$#show raw: set text(font: ("$monofont$",))
+$elseif(brand.typography.monospace.family)$#show raw: set text(font: $brand.typography.monospace.family$)
+$endif$
+
 #show: theme-show(
   theme-name,
   aspect-ratio: "$if(aspect-ratio)$$aspect-ratio$$else$16-9$endif$",

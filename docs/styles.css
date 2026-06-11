@@ -40,6 +40,21 @@
   text-decoration: none;
 }
 
+/* Title shrinks (truncating if needed) so it never overlaps the buttons. */
+.gallery .card .label > a {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gallery .card .label .links {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  margin-left: 0.6rem;
+}
+
 .gallery .card .label .pdf {
   font-size: 0.75rem;
   font-weight: 500;

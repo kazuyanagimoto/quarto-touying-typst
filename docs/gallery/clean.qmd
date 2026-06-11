@@ -4,12 +4,29 @@ subtitle: "A Touying theme for Quarto"
 format: touying-typst
 theme: clean
 author:
-  - name: Ada Lovelace
+  - name: Your Name
     orcid: 0000-0002-1825-0097
-    email: ada@example.org
-    affiliations: Analytical Engine Co.
+    email: you@example.org
+    affiliations: Your Institution
 date: today
 date-format: long
+# Fetch the clean theme's default fonts so the deck renders identically on any
+# machine (e.g. CI) without them installed system-wide.
+brand:
+  typography:
+    fonts:
+      - family: Roboto
+        weight: [100, 200, 300, 400, 500, 600, 700]
+        style: [normal, italic]
+        source: google
+      - family: Fira Code
+        weight: [100, 200, 300, 400, 500, 600, 700]
+        source: google
+    base: Roboto
+    headings: Roboto
+    monospace:
+      family: Fira Code
+      size: 0.9em
 ---
 
 {{< include _slides.qmd >}}

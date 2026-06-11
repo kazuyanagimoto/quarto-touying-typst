@@ -12,18 +12,21 @@ preview:
 thumbnails: render
     #!/usr/bin/env bash
     set -euo pipefail
-    for th in {{themes}}; do
+    for th in {{themes}} full; do
       pdftoppm -png -singlefile -r 95 -f 1 -l 1 docs/_site/gallery/$th.pdf docs/static/images/$th
       echo "docs/static/images/$th.png"
     done
 
-# Build navigable HTML decks (requires `pip install touying` on PATH)
+# Build navigable HTML decks (requires `pip install touying` on PATH).
+# Renders the whole project (not single files) so Quarto honours `freeze`: the
+# R-backed `full` deck builds from its committed `_freeze/` results and no R
+# toolchain is needed. `keep-typ` leaves each deck's `.typ` for touying-exporter.
 decks:
     #!/usr/bin/env bash
     set -euo pipefail
+    quarto render docs -M keep-typ:true
     mkdir -p docs/slides
-    for th in {{themes}}; do
-      quarto render docs/gallery/$th.qmd --to touying-typst -M keep-typ:true
+    for th in {{themes}} full; do
       touying compile docs/gallery/$th.typ --format html --output docs/slides/$th.html
       echo "docs/slides/$th.html"
     done

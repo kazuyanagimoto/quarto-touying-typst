@@ -10,6 +10,13 @@ project:
     - slides/
     - static/thumbnail.png   # referenced by README via absolute URL, so copy it explicitly
 
+# Never execute code during a render: the `full` deck's R chunks are run
+# locally and the results committed under `_freeze/`, so CI (and `just`) reuse
+# them and need no R toolchain. Re-render locally after editing `full.qmd` to
+# refresh the cache.
+execute:
+  freeze: true
+
 website:
   title: "quarto-touying-typst"
   description: "Touying slides for Quarto, with a gallery of built-in themes."

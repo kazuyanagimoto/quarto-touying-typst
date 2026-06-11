@@ -24,7 +24,7 @@ A minimal presentation is just a `.qmd` file with `format: touying-typst`:
 ```yaml
 ---
 title: "Habits"
-author: "Ada Lovelace"
+author: "Your Name"
 date: today
 format: touying-typst
 theme: metropolis
@@ -161,21 +161,6 @@ Right column, a little wider.
 
 ![Columns honour the `width` attribute](static/images/tutorial/columns.png)
 
-## Speaker notes
-
-Notes are written in a `.notes` div. They are kept out of the slide (matching
-Reveal.js behaviour):
-
-```markdown
-## A slide
-
-Visible content.
-
-::: {.notes}
-Only you see these notes.
-:::
-```
-
 ## Content
 
 All of the standard Quarto + Typst content works without any extra setup.
@@ -232,17 +217,23 @@ You can nudge colours and fonts from the front matter:
 accent: "1f6feb"       # primary colour (hex, no #)
 accent2: "9a2515"      # secondary colour
 jet: "1b1f24"          # body text colour
+monofont: "Fira Code"  # code font
 sansfont: "Fira Sans"  # heading font
 mainfont: "Source Serif"
 fontsize: 22pt
 ```
 
+Colours (`accent` / `accent2` / `jet`) and the `mainfont` (body) / `monofont`
+(code) fonts apply to every theme; `sansfont`, `fontsize`, and heading weight
+style the `clean` theme.
+
 ### Brand
 
 A [Quarto brand](https://quarto.org/docs/authoring/brand.html) (`_brand.yml`
 or a `brand:` key) is picked up automatically as a fallback for the options
-above. `brand.color.primary` / `secondary` / `foreground` set the palette (for
-every theme), and `brand.typography` sets the fonts (for the `clean` theme):
+above. `brand.color.*` set the palette and `brand.typography.base` /
+`monospace` set the body and code fonts (all for every theme), while
+`brand.typography.headings` and weight style the `clean` theme:
 
 ```yaml
 brand:
@@ -269,18 +260,20 @@ The extension adds a few inline helpers:
 | `[[label]{.button}](#target)`                   | Beamer-style goto button   |
 | `[text]{.small-cite}`                           | Small, muted citation text |
 
-`.alert` works in every theme; `.fg` / `.bg` / `.button` / `.small-cite` are
-theme-independent and pick up the active theme's colours.
+All of these work in every theme. `.alert`, `.button`, and `.small-cite` pick
+up the active theme's colours; `.fg` / `.bg` use a fixed accent colour by
+default, so pass `options` to choose your own (e.g.
+`[text]{.fg options='fill: rgb("#5D639E")'}`).
 
 These are *commands* (inline) and *environments* (block) — `[x]{.cmd}` becomes
 `#cmd()[x]` and `::: {.env}` becomes `#env()[…]`, with any `options` passed
 through. Map your own to any Typst function from the front matter:
 
 ```yaml
-commands:                 # inline spans  ->  #note()[…]
-  - note
-environments:             # block divs    ->  #boxed()[…]
-  boxed: rect             # class `.boxed` calls Typst's `rect`
+commands:
+  - highlight # [x]{.highlight} -> #highlight()[x]
+environments:
+  - theorem # ::: {.theorem} -> #theorem()[ ... ]
 ```
 
 ## Native Touying
@@ -302,10 +295,3 @@ slide counter so appendix slides don't inflate the total in the footer:
 
 ## Extra slide
 ```
-
-## Learning more
-
-- [Gallery](index.qmd) — every theme, side by side
-- [Touying documentation](https://touying-typ.github.io) — the underlying framework
-- [Quarto + Typst](https://quarto.org/docs/output-formats/typst.html) — the Typst output format
-- [README](https://github.com/kazuyanagimoto/quarto-touying-typst) — install and reference

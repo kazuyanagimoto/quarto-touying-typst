@@ -164,12 +164,9 @@
               fill: self.colors.primary,
               (0em, 0em), (0.42em, 0.24em), (0em, 0.48em),
             )),
-            // Level 2+: right-pointing arrow
-            box(baseline: 0.05em, polygon(
-              fill: self.colors.primary,
-              (0em, 0.06em), (0.34em, 0.06em), (0.34em, 0em),
-              (0.5em, 0.16em), (0.34em, 0.32em), (0.34em, 0.26em), (0em, 0.26em),
-            )),
+            // Level 2+: thin right arrow glyph (New Computer Modern ships with
+            // Typst, so it is always available -- slim, like the original theme)
+            text(fill: self.colors.primary, font: "New Computer Modern")[#sym.arrow],
           ),
         )
         // Ordered List

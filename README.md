@@ -5,7 +5,7 @@
 
 A drop-in Quarto extension for building slides with
 [Touying](https://touying-typ.github.io), the Beamer-like presentation
-framework for Typst. This is the *base* extension: it wires Quarto's slide
+framework for Typst. This is the _base_ extension: it wires Quarto's slide
 syntax onto Touying and lets you pick any of Touying's built-in themes.
 Theme-specific decks (e.g. the Clean theme) live in their own repositories and
 build on top of this one.
@@ -13,7 +13,7 @@ build on top of this one.
 > Status: **prototype** (v0.0.1). The bridge and theme selection work; the
 > surface area is intentionally small.
 
-![A slide rendered with the metropolis theme](https://kazuyanagimoto.com/quarto-touying-typst/static/thumbnail.png)
+![The metropolis title slide rendered with this extension](https://kazuyanagimoto.com/quarto-touying-typst/static/thumbnail.png)
 
 ## Install
 
@@ -47,15 +47,14 @@ quarto use template kazuyanagimoto/quarto-touying-typst
 title: My Talk
 subtitle: A subtitle
 format: touying-typst
-theme: default         # default | simple | metropolis | dewdrop | university | aqua | stargazer | clean
-aspect-ratio: "16-9"
+theme: default # default | simple | metropolis | dewdrop | university | aqua | stargazer | clean
+aspect-ratio: "16-9" # "16-9" or "4-3"
 author:
   - name: Your Name
     affiliations: Your Institution
 institute: Your Institution
 date: today
 ---
-
 # A Section
 
 ## A Slide
@@ -83,7 +82,7 @@ slides:
 
 ```yaml
 format: touying-typst
-shift-heading-level-by: 0   # `##` stays a slide even without a leading `#`
+shift-heading-level-by: 0 # `##` stays a slide even without a leading `#`
 ```
 
 This is Pandoc's
@@ -92,50 +91,40 @@ option; positive/negative values shift every heading by that amount.
 
 ## Options
 
-| Option         | Default      | Description                                            |
-| -------------- | ------------ | ----------------------------------------------------- |
-| `theme`        | `default`    | Built-in Touying theme to use                         |
-| `aspect-ratio` | `16-9`       | Slide aspect ratio (`16-9`, `4-3`)                    |
-| `handout`      | `false`      | Collapse all incremental reveals into a handout       |
+| Option         | Default   | Description                                     |
+| -------------- | --------- | ----------------------------------------------- |
+| `theme`        | `default` | Built-in Touying theme to use                   |
+| `aspect-ratio` | `16-9`    | Slide aspect ratio (`16-9`, `4-3`)              |
+| `handout`      | `false`   | Collapse all incremental reveals into a handout |
 
 Available themes (in Touying's order): `default`, `simple`, `metropolis`,
 `dewdrop`, `university`, `aqua`, `stargazer`, and `clean`. The default is
 `default`.
 
-Colours and fonts can be set with `accent` / `accent2` / `jet` / `sansfont` /
-`mainfont` / `fontsize`, or via a [Quarto brand](https://quarto.org/docs/authoring/brand.html)
-(`_brand.yml`): `brand.color.*` sets the palette for every theme and
-`brand.typography.*` sets the fonts for `clean`. Explicit options win over
-`brand`.
+Colours and fonts can be set with `accent` / `accent2` / `jet` / `mainfont` /
+`sansfont` / `monofont` / `fontsize`, or via a [Quarto brand](https://quarto.org/docs/authoring/brand.html)
+(`_brand.yml`); explicit options win over `brand`. The colours (`brand.color.*`)
+and the body and code fonts -- `mainfont` / `monofont`, or `brand.typography`
+`base` / `monospace` -- apply to **every** theme. `sansfont` (the heading
+font), `fontsize`, and heading weight style the `clean` theme; the built-in
+Touying themes use one font at a fixed size, so they inherit the body and code
+fonts but keep their own size.
 
-`clean` is a richer theme developed in this repo (it will eventually move to its
-own repository). Its title slide shows structured authors (name, affiliation,
-email, ORCID), and it adds emphasis classes:
+## Useful syntax
 
-| Markup                                          | Renders                         |
-| ----------------------------------------------- | ------------------------------- |
-| `[text]{.alert}`                                | Accent-coloured emphasis        |
-| `[text]{.fg options='fill: rgb("#5D639E")'}`    | Custom-coloured text            |
-| `[text]{.bg}`                                    | Highlighted background          |
-| `[text]{.small-cite}`                            | Small, muted citation text      |
-
-`.alert` works in every theme; `.fg` / `.bg` / `.button` / `.small-cite` are
-theme-independent.
-
-## Reveal.js-style syntax
-
-The goal is for Quarto's presentation syntax to work as-is. Currently bridged:
-
-| Quarto                              | Behaviour                              |
-| ----------------------------------- | -------------------------------------- |
-| `. . .`                             | Pause (`#pause`)                       |
-| `::: {.incremental}`                | Reveal list items one `#pause` at a time |
-| `::: {.columns}` / `.column`        | Side-by-side columns (Typst grid)      |
-| `::: {.notes}`                      | Speaker notes (hidden on the slide)    |
-| `[text]{.button}`                   | Beamer-style button (clickable in a link) |
-| `[text]{.only options='"2-"'}` / `.uncover` | Reveal a span/block from a sub-slide on |
-| `{{< pause >}}` / `{{< meanwhile >}}` | `#pause` / `#meanwhile`              |
-| `{{< appendix >}}`                  | Begin back-matter (freezes the slide counter) |
+| Quarto                                       | Behaviour                                     |
+| -------------------------------------------- | --------------------------------------------- |
+| `. . .`                                      | Pause (`#pause`)                              |
+| `::: {.incremental}`                         | Reveal list items one `#pause` at a time      |
+| `::: {.columns}` / `.column`                 | Side-by-side columns (Typst grid)             |
+| `[text]{.alert}`                             | Accent-coloured emphasis                      |
+| `[text]{.fg options='fill: rgb("#5D639E")'}` | Custom-coloured text                          |
+| `[text]{.bg}`                                | Highlighted background                        |
+| `[text]{.small-cite}`                        | Small, muted citation text                    |
+| `[text]{.button}`                            | Beamer-style button (clickable in a link)     |
+| `[text]{.only options='"2-"'}` / `.uncover`  | Reveal a span/block from a sub-slide on       |
+| `{{< pause >}}` / `{{< meanwhile >}}`        | `#pause` / `#meanwhile`                       |
+| `{{< appendix >}}`                           | Begin back-matter (freezes the slide counter) |
 
 Columns honour the `width` attribute:
 
@@ -150,28 +139,24 @@ Right
 ::::
 ```
 
-## Native Touying
+## Commands and environments
 
-Touying code works anywhere, e.g. inline `#pause`. For multi-step reveals with
-`uncover` / `only` / `alternatives`:
+Any span or div can be wired to a Typst function call:
 
-```markdown
-::: {.complex-anim repeat="4"}
-At subslide #only("2-")[two and later] and #uncover("3-")[three and later].
-:::
+- `[x]{.cmd}` becomes `#cmd()[x]` (inline span maps to a Typst command)
+- `::: {.env}` becomes `#env()[…]` (block div maps to a Typst environment)
+- an `options='…'` attribute is passed verbatim as the call's arguments, e.g.
+  `[x]{.fg options='fill: rgb("#5D639E")'}` becomes `#fg(fill: rgb("#5D639E"))[x]`
+
+Register your own with `commands:` / `environments:` document metadata, given as
+a list of class names -- each maps to a Typst function of the same name:
+
+```yaml
+commands:
+  - highlight # [x]{.highlight} -> #highlight()[x]
+environments:
+  - theorem # ::: {.theorem} -> #theorem()[ ... ]
 ```
-
-`[x]{.cmd}` / `::: {.env}` map to Typst calls `#cmd()[x]` / `#env()[…]`
-(`.alert` / `.fg` / `.bg` / `.button` / `.only` / `.uncover` are built in). Add
-your own with `commands:` / `environments:` document metadata (a list of names,
-or `name: typst-function` pairs).
-
-## Adding a theme
-
-Touying ships more theme functions than are wired up here. To expose one, add
-it to the two maps in
-[`_extensions/touying/typst-template.typ`](_extensions/touying/typst-template.typ)
-(its `*-theme` show function and its `title-slide`).
 
 ## Relationship to other extensions
 
@@ -181,7 +166,3 @@ it to the two maps in
 - [`quarto-clean-typst`](https://github.com/kazuyanagimoto/quarto-clean-typst)
   is a styled theme deck; the long-term plan is for theme repos like it to
   build on this base.
-
-## License
-
-MIT

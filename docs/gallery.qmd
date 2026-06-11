@@ -3,7 +3,7 @@ title: "Gallery"
 toc: false
 ---
 
-Every deck is rendered from the [same source](https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/examples/_slides.qmd)
+Every theme deck below is rendered from the [same source](https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/docs/gallery/_slides.qmd)
 with a different `theme:` (seven built-in Touying themes plus the in-repo
 `clean` theme). Click a card to **flip through the slides in your browser**
 (navigable HTML exported with
@@ -19,6 +19,19 @@ arrow keys, or grab the `PDF`.
 <div class="card"><a class="deck" href="slides/aqua.html"><img src="static/images/aqua.png" alt="aqua theme"></a><div class="label"><a href="slides/aqua.html">aqua</a><a class="pdf" href="gallery/aqua.pdf">PDF</a></div></div>
 <div class="card"><a class="deck" href="slides/stargazer.html"><img src="static/images/stargazer.png" alt="stargazer theme"></a><div class="label"><a href="slides/stargazer.html">stargazer</a><a class="pdf" href="gallery/stargazer.pdf">PDF</a></div></div>
 <div class="card"><a class="deck" href="slides/clean.html"><img src="static/images/clean.png" alt="clean theme"></a><div class="label"><a href="slides/clean.html">clean</a><a class="pdf" href="gallery/clean.pdf">PDF</a></div></div>
+:::
+
+<br>
+
+## Full feature tour
+
+A single deck (on the `clean` theme) that exercises the whole feature set --
+emphasis classes, columns, citations, callouts, Typst CSS, animations, R
+figures and tables, and an appendix. Flip through it in the browser, grab the
+`PDF`, or read the `Code` to see exactly how each slide is written.
+
+::: {.gallery}
+<div class="card"><a class="deck" href="slides/full.html"><img src="static/images/full.png" alt="full feature tour"></a><div class="label"><a href="slides/full.html">full</a><span class="links"><a class="pdf" href="https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/docs/gallery/full.qmd">Code</a><a class="pdf" href="gallery/full.pdf">PDF</a></span></div></div>
 :::
 
 ```{=html}
