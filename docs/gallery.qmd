@@ -34,6 +34,25 @@ figures and tables, and an appendix. Flip through it in the browser, grab the
 <div class="card"><a class="deck" href="slides/full.html"><img src="static/images/full.png" alt="full feature tour"></a><div class="label"><a href="slides/full.html">full</a><span class="links"><a class="pdf" href="https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/docs/gallery/full.qmd">Code</a><a class="pdf" href="gallery/full.pdf">PDF</a></span></div></div>
 :::
 
+<br>
+
+## External themes
+
+Any Touying theme works, not just the built-ins. Bring the theme function into
+scope with `include-in-header` and name it with `theme-typst`:
+
+- **`bamboo`** is a custom theme written from scratch -- the worked example from
+  Touying's [Build Your Own Theme](https://touying-typ.github.io/docs/tutorials/build-your-own-theme)
+  guide, shipped as a local `.typ` file.
+- **`flow`** is [`touying-flow`](https://typst.app/universe/package/touying-flow),
+  a theme published on [Typst Universe](https://typst.app/universe), pulled in
+  with a one-line `#import`.
+
+::: {.gallery}
+<div class="card"><a class="deck" href="slides/bamboo.html"><img src="static/images/bamboo.png" alt="bamboo custom theme"></a><div class="label"><a href="slides/bamboo.html">bamboo</a><span class="links"><a class="pdf" href="https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/docs/gallery/bamboo.qmd">Code</a><a class="pdf" href="gallery/bamboo.pdf">PDF</a></span></div></div>
+<div class="card"><a class="deck" href="slides/flow.html"><img src="static/images/flow.png" alt="flow theme from Typst Universe"></a><div class="label"><a href="slides/flow.html">flow</a><span class="links"><a class="pdf" href="https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/docs/gallery/flow.qmd">Code</a><a class="pdf" href="gallery/flow.pdf">PDF</a></span></div></div>
+:::
+
 ```{=html}
 <div class="deck-modal" id="deck-lightbox" aria-hidden="true">
   <div class="frame">

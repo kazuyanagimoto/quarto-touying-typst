@@ -1,4 +1,6 @@
 themes := "default simple metropolis dewdrop university aqua stargazer clean"
+# Standalone showcase decks (full feature tour + external-theme examples).
+extras := "full bamboo flow"
 
 # Render the website (docs/: gallery index, tutorial, per-theme example decks)
 render:
@@ -12,7 +14,7 @@ preview:
 thumbnails: render
     #!/usr/bin/env bash
     set -euo pipefail
-    for th in {{themes}} full; do
+    for th in {{themes}} {{extras}}; do
       pdftoppm -png -singlefile -r 95 -f 1 -l 1 docs/_site/gallery/$th.pdf docs/static/images/$th
       echo "docs/static/images/$th.png"
     done
@@ -26,7 +28,7 @@ decks:
     set -euo pipefail
     quarto render docs -M keep-typ:true
     mkdir -p docs/slides
-    for th in {{themes}} full; do
+    for th in {{themes}} {{extras}}; do
       touying compile docs/gallery/$th.typ --format html --output docs/slides/$th.html
       echo "docs/slides/$th.html"
     done

@@ -6,7 +6,16 @@
 )
 
 // Apply the selected theme through the dispatcher ----------------------------
-#let theme-name = "$if(theme)$$theme$$else$default$endif$"
+// `theme-typst` names an external theme function brought into scope via
+// `include-in-header` -- either a local theme `.typ`, or a one-line file that
+// `#import`s a Typst Universe package. Without it, use a built-in theme name.
+$if(theme-typst)$
+#let selected-theme = $theme-typst$
+#let selected-title-slide = $if(theme-title-slide)$$theme-title-slide$$else$title-slide$endif$
+$else$
+#let selected-theme = "$if(theme)$$theme$$else$default$endif$"
+#let selected-title-slide = touying-title-slides.at(selected-theme)
+$endif$
 
 // Fonts: explicit option first, then `brand`. Set at the document root so they
 // reach EVERY theme -- the built-in Touying themes set text size/weight but not
@@ -23,7 +32,7 @@ $elseif(brand.typography.monospace.family)$#show raw: set text(font: $brand.typo
 $endif$
 
 #show: theme-show(
-  theme-name,
+  selected-theme,
   aspect-ratio: "$if(aspect-ratio)$$aspect-ratio$$else$16-9$endif$",
   $if(handout)$ handout: true, $endif$
   // Colours and fonts: explicit option first, then `brand` (_brand.yml) ------
@@ -72,4 +81,4 @@ $endif$
 )
 
 // Title slide ----------------------------------------------------------------
-#(touying-title-slides.at(theme-name))()
+#selected-title-slide()

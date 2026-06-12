@@ -34,7 +34,7 @@ theme: metropolis
 Render it the usual way:
 
 ```bash
-quarto render habits.qmd
+quarto render slides.qmd
 ```
 
 ::: {.callout-tip}
@@ -83,7 +83,7 @@ A title slide is generated automatically from the `title`, `subtitle`,
 ![The title slide for the deck above](static/images/tutorial/title.png){width=70%}
 
 The `clean` theme also renders structured authors with affiliation, email, and
-ORCID — see the [gallery](index.qmd).
+ORCID — see the [gallery](gallery.qmd).
 
 ### Heading levels
 
@@ -209,7 +209,7 @@ theme: dewdrop   # default | simple | metropolis | dewdrop
 ```
 
 Eight themes ship with the extension. Browse them — and flip through a full deck
-in each — on the [Gallery](index.qmd) page.
+in each — on the [Gallery](gallery.qmd) page.
 
 You can nudge colours and fonts from the front matter:
 
@@ -247,6 +247,52 @@ brand:
 ```
 
 Explicit `accent` / `sansfont` / … always take precedence over `brand`.
+
+### External themes
+
+You are not limited to the built-ins: any Touying theme works, whether you
+wrote it yourself or installed it from
+[Typst Universe](https://typst.app/universe). The recipe is always the same two
+steps:
+
+1. Bring the theme's function into scope with `include-in-header`.
+2. Name that function with `theme-typst` (its title slide defaults to
+   `title-slide`; set `theme-title-slide` if the theme calls it something else).
+
+**A custom theme file.** Suppose you have a `mytheme.typ` defining a
+`mytheme-theme` function (and a `title-slide`), such as the deck built in
+Touying's [Build Your Own Theme](https://touying-typ.github.io/docs/tutorials/build-your-own-theme)
+guide. Point `include-in-header` at the file:
+
+```yaml
+format:
+  touying-typst:
+    include-in-header: mytheme.typ
+    theme-typst: mytheme-theme
+```
+
+**A Typst Universe package.** Import it inline with the `text:` form. (Writing a
+bare `@preview/...` as a plain YAML value will not work: Pandoc parses the `@`
+as a citation.)
+
+```yaml
+format:
+  touying-typst:
+    include-in-header:
+      text: |
+        #import "@preview/touying-flow:1.2.0": *
+    theme-typst: flow-theme
+```
+
+Either way the front-matter `title` / `author` / `date` feed the theme's title
+slide, and `accent` / `accent2` / `jet` (or `brand.color.*`) map onto its
+colour palette, exactly like the built-in themes. The `bamboo` (custom) and
+`flow` (Universe) decks on the [Gallery](gallery.qmd) page are live examples.
+
+A theme pinned to an older Touying version usually still works. If it hard-codes
+a font you don't have installed, fetch that font with `brand` and point the
+theme's own font option at it -- the `flow` deck does exactly this for its code
+font (`flow-theme.with(code-font: "JetBrains Mono")`).
 
 ## Emphasis and buttons
 

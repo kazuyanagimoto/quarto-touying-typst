@@ -1,0 +1,26 @@
+---
+title: "flow"
+subtitle: "A Touying theme from Typst Universe"
+format:
+  touying-typst:
+    include-in-header:
+      text: |
+        #import "@preview/touying-flow:1.2.0": *
+        // flow's default code font is the uninstalled "Jetbrains Mono NL"; point
+        // it at the JetBrains Mono we fetch via `brand` so the build is clean.
+        #let flow-theme = flow-theme.with(code-font: "JetBrains Mono")
+    theme-typst: flow-theme
+author:
+  - name: Your Name
+    affiliations: Your Institution
+date: today
+date-format: long
+brand:
+  typography:
+    monospace: JetBrains Mono
+    fonts:
+      - family: JetBrains Mono
+        source: google
+---
+
+{{< include _slides.qmd >}}

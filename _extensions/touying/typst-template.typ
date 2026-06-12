@@ -335,7 +335,10 @@
   font-weight-heading: none,
   ..info-args,
 ) = {
-  let base = touying-themes.at(name)
+  // `name` is a built-in theme name (string) or an external theme function
+  // (from `include-in-header` / `theme-package`). External themes take the
+  // generic colour/config path below, exactly like the built-in Touying themes.
+  let base = if type(name) == function { name } else { touying-themes.at(name) }
   let named = (aspect-ratio: aspect-ratio)
   let cfg = (config-info(..info-args),)
   if name == "clean" {

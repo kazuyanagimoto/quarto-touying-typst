@@ -1,0 +1,15 @@
+---
+title: "bamboo"
+subtitle: "A custom Touying theme"
+format:
+  touying-typst:
+    include-in-header: themes/bamboo.typ
+    theme-typst: bamboo-theme
+author:
+  - name: Your Name
+    affiliations: Your Institution
+date: today
+date-format: long
+---
+
+{{< include _slides.qmd >}}
