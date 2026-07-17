@@ -8,8 +8,6 @@ A drop-in Quarto extension for building slides with
 for Typst. It wires Quarto's slide syntax onto Touying and lets you pick any
 built-in Touying theme -- or bring your own.
 
-> Status: **prototype** (v0.0.2). The surface area is intentionally small.
-
 ![The metropolis title slide rendered with this extension](https://kazuyanagimoto.com/quarto-touying-typst/static/thumbnail.png)
 
 ## Install
