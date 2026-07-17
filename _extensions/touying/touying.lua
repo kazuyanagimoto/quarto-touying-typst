@@ -1,5 +1,15 @@
 -- Bridge filter: maps Quarto's presentation syntax onto Touying primitives.
 
+-- A Markdown horizontal rule (`---`) starts a new slide, matching Touying's
+-- `horizontal-line-to-pagebreak`. Quarto's Typst writer renders `---` as a
+-- drawn `#horizontalrule` line, which Touying does NOT treat as a slide break,
+-- so emit a literal `---` (Touying's recognised horizontal-line marker) instead.
+function HorizontalRule()
+  if quarto.doc.is_format("typst") then
+    return pandoc.RawBlock("typst", "---")
+  end
+end
+
 -- `. . .` on its own line becomes a Touying pause.
 function Para(el)
   if quarto.doc.is_format("typst") then
