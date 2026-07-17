@@ -10,3 +10,5 @@ docs/*.pdf
 docs/slides/
 
 **/*.quarto_ipynb
+
+/.luarc.json
