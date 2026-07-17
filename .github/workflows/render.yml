@@ -28,7 +28,11 @@ jobs:
           python-version: "3.12"
 
       - name: Install touying-exporter
-        run: pip install touying
+        # Pin Typst < 0.15: the `flow` deck pulls touying-flow 1.2.0 -> mitex
+        # 0.2.5, which still uses the `kai` math symbol that Typst deprecated in
+        # 0.14 and removed in 0.15. touying-flow has no release that bumps mitex,
+        # so cap the exporter's Typst until it does.
+        run: pip install touying "typst<0.15"
 
       - name: Set up just
         uses: extractions/setup-just@v3
