@@ -35,7 +35,10 @@ $endif$
   selected-theme,
   aspect-ratio: "$if(aspect-ratio)$$aspect-ratio$$else$16-9$endif$",
   $if(handout)$ handout: true, $endif$
-  // Colours and fonts: explicit option first, then `brand` (_brand.yml) ------
+  // Colours: explicit option first, then `brand` (_brand.yml). These map onto
+  // the standard Touying palette and also seed the `button` / `small-cite`
+  // helper colours. Fonts are set at the document root (above); a styled
+  // external theme's own font knobs are set with `.with(...)` in its header.
   $if(accent)$ accent: rgb("$accent$"),
   $elseif(brand.color.primary)$ accent: brand-color.primary,
   $endif$
@@ -44,18 +47,6 @@ $endif$
   $endif$
   $if(jet)$ foreground: rgb("$jet$"),
   $elseif(brand.color.foreground)$ foreground: brand-color.foreground,
-  $endif$
-  $if(sansfont)$ sansfont: ("$sansfont$",),
-  $elseif(brand.typography.headings.family)$ sansfont: $brand.typography.headings.family$,
-  $endif$
-  $if(mainfont)$ mainfont: ("$mainfont$",),
-  $elseif(brand.typography.base.family)$ mainfont: $brand.typography.base.family$,
-  $endif$
-  $if(fontsize)$ fontsize: $fontsize$,
-  $elseif(brand.typography.base.size)$ fontsize: $brand.typography.base.size$,
-  $endif$
-  $if(font-weight-heading)$ font-weight-heading: "$font-weight-heading$",
-  $elseif(brand.typography.headings.weight)$ font-weight-heading: $brand.typography.headings.weight$,
   $endif$
   // Info shared by every theme's title slide ---------------------------------
   title: [$title$],

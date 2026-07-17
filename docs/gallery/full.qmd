@@ -10,7 +10,10 @@ author:
     affiliations: Your Institution
 format:
   touying-typst:
-    theme: clean
+    include-in-header:
+      text: |
+        #import "@preview/touying-quarto-clean:0.2.0": *
+    theme-typst: clean-theme
     bibliographystyle: "chicago-author-date"
 execute:
   echo: false
@@ -232,7 +235,6 @@ Like the [latex-environment](https://github.com/quarto-ext/latex-environment) ex
 ```yaml
 format:
   touying-typst:
-    theme: clean
     include-in-header: "custom.typ"
     commands: [foo]
     environments: [bar]

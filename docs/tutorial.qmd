@@ -75,6 +75,23 @@ The `#` heading produces a section divider, and each `##` becomes a slide:
 ![`## Getting up` → a content slide](static/images/tutorial/slide.png)
 :::
 
+### Breaking a slide without a heading
+
+A horizontal rule (`---` on its own line) starts a new slide that carries no
+heading — handy for splitting a long slide or adding a heading-less follow-up:
+
+```markdown
+## A long topic
+
+First half of the content.
+
+---
+
+Second half, on a fresh slide.
+```
+
+This mirrors Touying's native `horizontal-line-to-pagebreak` behaviour.
+
 ### Title slide
 
 A title slide is generated automatically from the `title`, `subtitle`,
@@ -204,12 +221,14 @@ Switch the whole look with one option:
 
 ```yaml
 format: touying-typst
-theme: dewdrop   # default | simple | metropolis | dewdrop
-                 # university | aqua | stargazer | clean
+theme: dewdrop   # default | simple | metropolis
+                 # dewdrop | university | aqua | stargazer
 ```
 
-Eight themes ship with the extension. Browse them — and flip through a full deck
-in each — on the [Gallery](gallery.qmd) page.
+Seven themes ship with the extension. The styled `clean` theme is a separate
+Typst Universe package used through the [external-theme](#external-themes) path.
+Browse them all — and flip through a full deck in each — on the
+[Gallery](gallery.qmd) page.
 
 You can nudge colours and fonts from the front matter:
 
@@ -217,23 +236,24 @@ You can nudge colours and fonts from the front matter:
 accent: "1f6feb"       # primary colour (hex, no #)
 accent2: "9a2515"      # secondary colour
 jet: "1b1f24"          # body text colour
-monofont: "Fira Code"  # code font
-sansfont: "Fira Sans"  # heading font
-mainfont: "Source Serif"
-fontsize: 22pt
+mainfont: "Source Serif"  # body font
+sansfont: "Fira Sans"     # heading font
+monofont: "Fira Code"     # code font
 ```
 
-Colours (`accent` / `accent2` / `jet`) and the `mainfont` (body) / `monofont`
-(code) fonts apply to every theme; `sansfont`, `fontsize`, and heading weight
-style the `clean` theme.
+Colours (`accent` / `accent2` / `jet`) and fonts (`mainfont` / `sansfont` /
+`monofont`) apply to every theme. `accent` also colours the `.button` and
+`.small-cite` helpers. A styled theme's own extra knobs (font sizes, weights,
+etc.) are set on the theme function with `.with(...)` — see
+[External themes](#external-themes).
 
 ### Brand
 
 A [Quarto brand](https://quarto.org/docs/authoring/brand.html) (`_brand.yml`
 or a `brand:` key) is picked up automatically as a fallback for the options
 above. `brand.color.*` set the palette and `brand.typography.base` /
-`monospace` set the body and code fonts (all for every theme), while
-`brand.typography.headings` and weight style the `clean` theme:
+`headings` / `monospace` set the body, heading, and code fonts -- all for
+every theme:
 
 ```yaml
 brand:
@@ -284,15 +304,31 @@ format:
     theme-typst: flow-theme
 ```
 
+The styled **`clean`** theme is loaded the same way, and its title slide adds
+structured authors (affiliation, email, ORCID):
+
+```yaml
+format:
+  touying-typst:
+    include-in-header:
+      text: |
+        #import "@preview/touying-quarto-clean:0.2.0": *
+    theme-typst: clean-theme
+```
+
 Either way the front-matter `title` / `author` / `date` feed the theme's title
 slide, and `accent` / `accent2` / `jet` (or `brand.color.*`) map onto its
-colour palette, exactly like the built-in themes. The `bamboo` (custom) and
-`flow` (Universe) decks on the [Gallery](gallery.qmd) page are live examples.
+colour palette, exactly like the built-in themes. The `clean` (Universe),
+`bamboo` (custom), and `flow` (Universe) decks on the [Gallery](gallery.qmd)
+page are live examples.
 
 A theme pinned to an older Touying version usually still works. If it hard-codes
 a font you don't have installed, fetch that font with `brand` and point the
 theme's own font option at it -- the `flow` deck does exactly this for its code
-font (`flow-theme.with(code-font: "JetBrains Mono")`).
+font (`flow-theme.with(code-font: "JetBrains Mono")`). When a theme package
+exports its own `.button` / `.fg` / `.bg` helpers (as `clean` does), importing
+it with `: *` makes those take over from the base versions, so they match the
+theme automatically.
 
 ## Emphasis and buttons
 
@@ -306,10 +342,12 @@ The extension adds a few inline helpers:
 | `[[label]{.button}](#target)`                   | Beamer-style goto button   |
 | `[text]{.small-cite}`                           | Small, muted citation text |
 
-All of these work in every theme. `.alert`, `.button`, and `.small-cite` pick
-up the active theme's colours; `.fg` / `.bg` use a fixed accent colour by
-default, so pass `options` to choose your own (e.g.
-`[text]{.fg options='fill: rgb("#5D639E")'}`).
+All of these work in every theme. `.alert` uses the theme's own accent, while
+`.button` and `.small-cite` follow the deck's `accent` / `jet` (a base default
+when unset). `.fg` / `.bg` use a fixed accent colour by default, so pass
+`options` to choose your own (e.g. `[text]{.fg options='fill: rgb("#5D639E")'}`).
+A styled theme loaded with `: *` (e.g. `clean`) supplies its own theme-matched
+`.button` / `.fg` / `.bg` / `.small-cite`.
 
 These are *commands* (inline) and *environments* (block) — `[x]{.cmd}` becomes
 `#cmd()[x]` and `::: {.env}` becomes `#env()[…]`, with any `options` passed

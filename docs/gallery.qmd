@@ -4,8 +4,9 @@ toc: false
 ---
 
 Every theme deck below is rendered from the [same source](https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/docs/gallery/_slides.qmd)
-with a different `theme:` (seven built-in Touying themes plus the in-repo
-`clean` theme). Click a card to **flip through the slides in your browser**
+-- the seven built-in Touying themes via `theme:`, plus the styled
+[`clean`](https://typst.app/universe/package/touying-quarto-clean) theme loaded
+as an external Typst Universe package. Click a card to **flip through the slides in your browser**
 (navigable HTML exported with
 [touying-exporter](https://github.com/touying-typ/touying-exporter)); use the
 arrow keys, or grab the `PDF`.

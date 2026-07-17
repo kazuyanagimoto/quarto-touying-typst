@@ -1,6 +1,6 @@
-themes := "default simple metropolis dewdrop university aqua stargazer clean"
+themes := "default simple metropolis dewdrop university aqua stargazer"
 # Standalone showcase decks (full feature tour + external-theme examples).
-extras := "full bamboo flow"
+extras := "full clean bamboo flow"
 
 # Render the website (docs/: gallery index, tutorial, per-theme example decks)
 render:

@@ -55,14 +55,18 @@ native `=` / `==`.
 | `aspect-ratio` | `16-9`    | Slide aspect ratio (`16-9`, `4-3`)         |
 | `handout`      | `false`   | Collapse incremental reveals into a handout |
 
-Eight themes ship in the box: `default`, `simple`, `metropolis`, `dewdrop`,
-`university`, `aqua`, `stargazer`, and `clean`. Colours and fonts are tuned with
-`accent` / `accent2` / `jet` / `mainfont` / `sansfont` / `monofont` / `fontsize`,
-or a [Quarto brand](https://quarto.org/docs/authoring/brand.html).
+Seven themes ship in the box: `default`, `simple`, `metropolis`, `dewdrop`,
+`university`, `aqua`, and `stargazer`. Colours are tuned with `accent` /
+`accent2` / `jet`, fonts with `mainfont` / `sansfont` / `monofont`, or a
+[Quarto brand](https://quarto.org/docs/authoring/brand.html). A theme's own
+extra knobs (font sizes, weights, …) are set on the theme function with
+`.with(...)`.
 
 **Custom and external themes** work too: any Touying theme, one you wrote or one
-from [Typst Universe](https://typst.app/universe), via `include-in-header` plus a
-`theme-typst` option.
+from [Typst Universe](https://typst.app/universe) -- including the styled
+[`clean`](https://typst.app/universe/package/touying-quarto-clean) theme -- via
+`include-in-header` plus a `theme-typst` option. Keeping styled themes external
+means the base stays independent of any theme package's pinned Touying version.
 
 ## What you can do
 
@@ -84,6 +88,8 @@ flip through every theme in the browser.
 - This extension is the Touying counterpart to
   [`projector`](https://github.com/christopherkenny/projector) (which targets
   Polylux).
-- [`quarto-clean-typst`](https://github.com/kazuyanagimoto/quarto-clean-typst)
-  is a styled theme deck; the long-term plan is for theme repos like it to build
-  on this base.
+- The styled `clean` theme lives in its own package,
+  [`touying-quarto-clean`](https://typst.app/universe/package/touying-quarto-clean)
+  (source: [`quarto-clean-typst`](https://github.com/kazuyanagimoto/quarto-clean-typst)),
+  and rides on this base through the external-theme path -- the intended pattern
+  for styled theme repos.

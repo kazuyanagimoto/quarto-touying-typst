@@ -1,8 +1,12 @@
 ---
 title: "clean"
 subtitle: "A Touying theme for Quarto"
-format: touying-typst
-theme: clean
+format:
+  touying-typst:
+    include-in-header:
+      text: |
+        #import "@preview/touying-quarto-clean:0.2.0": *
+    theme-typst: clean-theme
 author:
   - name: Your Name
     orcid: 0000-0002-1825-0097

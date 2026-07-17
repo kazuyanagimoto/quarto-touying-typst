@@ -2,7 +2,7 @@
 // https://touying-typ.github.io/docs/tutorials/build-your-own-theme
 // Adapted only to import the same Touying version this extension uses and to
 // guard optional `info` keys, so it composes with Quarto's metadata.
-#import "@preview/touying:0.7.3": *
+#import "@preview/touying:0.7.4": *
 
 #let slide(title: auto, ..args) = touying-slide-wrapper(self => {
   if title != auto {
