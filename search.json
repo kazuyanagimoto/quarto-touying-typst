@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "gallery.html",
+    "href": "gallery.html",
+    "title": "Gallery",
+    "section": "",
+    "text": "Every theme deck below is rendered from the same source – the seven built-in Touying themes via theme:, plus the styled clean theme loaded as an external Typst Universe package. Click a card to flip through the slides in your browser (navigable HTML exported with touying-exporter); use the arrow keys, or grab the PDF."
+  },
+  {
+    "objectID": "gallery.html#full-feature-tour",
+    "href": "gallery.html#full-feature-tour",
+    "title": "Gallery",
+    "section": "Full feature tour",
+    "text": "Full feature tour\nA single deck (on the clean theme) that exercises the whole feature set – emphasis classes, columns, citations, callouts, Typst CSS, animations, R figures and tables, and an appendix. Flip through it in the browser, grab the PDF, or read the Code to see exactly how each slide is written.\n\n\n\n\nfullCodePDF"
+  },
+  {
+    "objectID": "gallery.html#external-themes",
+    "href": "gallery.html#external-themes",
+    "title": "Gallery",
+    "section": "External themes",
+    "text": "External themes\nAny Touying theme works, not just the built-ins. Bring the theme function into scope with include-in-header and name it with theme-typst:\n\nbamboo is a custom theme written from scratch – the worked example from Touying’s Build Your Own Theme guide, shipped as a local .typ file.\nflow is touying-flow, a theme published on Typst Universe, pulled in with a one-line #import.\n\n\n\n\n\nbambooCodePDF\n\n\n\n\n\nflowCodePDF\n\n\n\n\n  \n    ×"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quarto-touying-typst",
+    "section": "",
+    "text": "A drop-in Quarto extension for building slides with Touying, the Beamer-like presentation framework for Typst. It wires Quarto’s slide syntax onto Touying and lets you pick any built-in Touying theme – or bring your own.\n\n\n\nThe metropolis title slide rendered with this extension\n\n\n\n\nquarto add kazuyanagimoto/quarto-touying-typst\nOr start from the template:\nquarto use template kazuyanagimoto/quarto-touying-typst\n\n\n\n---\ntitle: My Talk\nsubtitle: A subtitle\nformat: touying-typst\ntheme: metropolis\nauthor:\n  - name: Your Name\n    affiliations: Your Institution\ndate: today\n---\n# A Section\n\n## A Slide\n\nContent goes here.\n# starts a new section and ## starts a new slide, mirroring Touying’s native = / ==.\n\n\n\n\n\n\n\n\n\n\n\nOption\nDefault\nDescription\n\n\n\n\ntheme\ndefault\nBuilt-in theme to use\n\n\naspect-ratio\n16-9\nSlide aspect ratio (16-9, 4-3)\n\n\nhandout\nfalse\nCollapse incremental reveals into a handout\n\n\n\nSeven themes ship in the box: default, simple, metropolis, dewdrop, university, aqua, and stargazer. Colours are tuned with accent / accent2 / jet, fonts with mainfont / sansfont / monofont, or a Quarto brand. A theme’s own extra knobs (font sizes, weights, …) are set on the theme function with .with(...).\nCustom and external themes work too: any Touying theme, one you wrote or one from Typst Universe – including the styled clean theme – via include-in-header plus a theme-typst option. Keeping styled themes external means the base stays independent of any theme package’s pinned Touying version.\n\n\n\n\nPauses (. . .), incremental lists, and multi-step reveals (.only / .uncover / .complex-anim)\nSide-by-side .columns\nEmphasis classes: .alert, .fg, .bg, .button, .small-cite\nShortcodes: {{&lt; pause &gt;}}, {{&lt; meanwhile &gt;}}, {{&lt; appendix &gt;}}\nMap any span or div to a Typst function with commands: / environments:\nEverything standard Quarto + Typst: equations, code, tables, figures\n\nSee the Tutorial for a full walkthrough, and the Gallery to flip through every theme in the browser.\n\n\n\n\nThis extension is the Touying counterpart to projector (which targets Polylux).\nThe styled clean theme lives in its own package, touying-quarto-clean (source: quarto-clean-typst), and rides on this base through the external-theme path – the intended pattern for styled theme repos."
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "quarto-touying-typst",
+    "section": "",
+    "text": "quarto add kazuyanagimoto/quarto-touying-typst\nOr start from the template:\nquarto use template kazuyanagimoto/quarto-touying-typst"
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "quarto-touying-typst",
+    "section": "",
+    "text": "---\ntitle: My Talk\nsubtitle: A subtitle\nformat: touying-typst\ntheme: metropolis\nauthor:\n  - name: Your Name\n    affiliations: Your Institution\ndate: today\n---\n# A Section\n\n## A Slide\n\nContent goes here.\n# starts a new section and ## starts a new slide, mirroring Touying’s native = / ==."
+  },
+  {
+    "objectID": "index.html#themes-and-options",
+    "href": "index.html#themes-and-options",
+    "title": "quarto-touying-typst",
+    "section": "",
+    "text": "Option\nDefault\nDescription\n\n\n\n\ntheme\ndefault\nBuilt-in theme to use\n\n\naspect-ratio\n16-9\nSlide aspect ratio (16-9, 4-3)\n\n\nhandout\nfalse\nCollapse incremental reveals into a handout\n\n\n\nSeven themes ship in the box: default, simple, metropolis, dewdrop, university, aqua, and stargazer. Colours are tuned with accent / accent2 / jet, fonts with mainfont / sansfont / monofont, or a Quarto brand. A theme’s own extra knobs (font sizes, weights, …) are set on the theme function with .with(...).\nCustom and external themes work too: any Touying theme, one you wrote or one from Typst Universe – including the styled clean theme – via include-in-header plus a theme-typst option. Keeping styled themes external means the base stays independent of any theme package’s pinned Touying version."
+  },
+  {
+    "objectID": "index.html#what-you-can-do",
+    "href": "index.html#what-you-can-do",
+    "title": "quarto-touying-typst",
+    "section": "",
+    "text": "Pauses (. . .), incremental lists, and multi-step reveals (.only / .uncover / .complex-anim)\nSide-by-side .columns\nEmphasis classes: .alert, .fg, .bg, .button, .small-cite\nShortcodes: {{&lt; pause &gt;}}, {{&lt; meanwhile &gt;}}, {{&lt; appendix &gt;}}\nMap any span or div to a Typst function with commands: / environments:\nEverything standard Quarto + Typst: equations, code, tables, figures\n\nSee the Tutorial for a full walkthrough, and the Gallery to flip through every theme in the browser."
+  },
+  {
+    "objectID": "index.html#relationship-to-other-extensions",
+    "href": "index.html#relationship-to-other-extensions",
+    "title": "quarto-touying-typst",
+    "section": "",
+    "text": "This extension is the Touying counterpart to projector (which targets Polylux).\nThe styled clean theme lives in its own package, touying-quarto-clean (source: quarto-clean-typst), and rides on this base through the external-theme path – the intended pattern for styled theme repos."
+  },
+  {
+    "objectID": "tutorial.html",
+    "href": "tutorial.html",
+    "title": "Tutorial",
+    "section": "",
+    "text": "This walkthrough mirrors Quarto’s Reveal.js tutorial, but targets Touying — the Beamer-style presentation framework for Typst. If you have written Reveal.js slides in Quarto, almost everything here will feel familiar."
+  },
+  {
+    "objectID": "tutorial.html#overview",
+    "href": "tutorial.html#overview",
+    "title": "Tutorial",
+    "section": "Overview",
+    "text": "Overview\nquarto-touying-typst is a drop-in Quarto extension. You write ordinary Quarto Markdown and get a Typst-rendered PDF deck, with a built-in theme chosen by a single theme: option. Install it into a project with:\nquarto add kazuyanagimoto/quarto-touying-typst\nA minimal presentation is just a .qmd file with format: touying-typst:\n---\ntitle: \"Habits\"\nauthor: \"Your Name\"\ndate: today\nformat: touying-typst\ntheme: metropolis\n---\nRender it the usual way:\nquarto render slides.qmd\n\n\n\n\n\n\nTip\n\n\n\nDon’t have a project yet? Start from the template:\nquarto use template kazuyanagimoto/quarto-touying-typst"
+  },
+  {
+    "objectID": "tutorial.html#creating-slides",
+    "href": "tutorial.html#creating-slides",
+    "title": "Tutorial",
+    "section": "Creating slides",
+    "text": "Creating slides\nSlides are delineated by Markdown headings, exactly like Touying’s native = / == and like Reveal.js:\n\nA level-1 heading (#) starts a section (a divider slide).\nA level-2 heading (##) starts a content slide.\n\n# In the morning\n\n## Getting up\n\n- Turn off alarm\n- Get out of bed\n\n## Breakfast\n\n- Eat eggs\n- Drink coffee\nThe # heading produces a section divider, and each ## becomes a slide:\n\n\n\n\n\n\n# In the morning → a section divider\n\n\n\n\n\n\n\n## Getting up → a content slide\n\n\n\n\n\n\nBreaking a slide without a heading\nA horizontal rule (--- on its own line) starts a new slide that carries no heading — handy for splitting a long slide or adding a heading-less follow-up:\n## A long topic\n\nFirst half of the content.\n\n---\n\nSecond half, on a fresh slide.\nThis mirrors Touying’s native horizontal-line-to-pagebreak behaviour.\n\n\nTitle slide\nA title slide is generated automatically from the title, subtitle, author, and date fields in your YAML front matter.\n\n\n\nThe title slide for the deck above\n\n\nThe clean theme also renders structured authors with affiliation, email, and ORCID — see the gallery.\n\n\nHeading levels\nBy default Quarto promotes the shallowest heading, so a deck that uses only ## turns those into section dividers. Either put a # section before your ## slides, or disable the promotion so ## always stays a slide:\nformat: touying-typst\nshift-heading-level-by: 0   # `##` stays a slide even without a leading `#`\nThis is handy when porting a Reveal.js deck that only uses ##."
+  },
+  {
+    "objectID": "tutorial.html#incremental-content",
+    "href": "tutorial.html#incremental-content",
+    "title": "Tutorial",
+    "section": "Incremental content",
+    "text": "Incremental content\nTo reveal content step by step, wrap it in a .incremental div:\n::: {.incremental}\n- First\n- Then second\n- Then third\n:::\n\n\n\nEach item appears on its own step\n\n\nYou can also break anywhere with a pause marker — three dots on their own line:\nFirst this shows.\n\n. . .\n\nThen this appears.\n.only / .uncover reveal a span or a whole block from a given sub-slide on (the options are passed straight to the Touying function):\n[shown from sub-slide 2]{.only options='\"2-\"'}\n\n::: {.uncover options='\"3-\"'}\nThis block is uncovered on sub-slide 3.\n:::\nFor fine-grained control (revealing across multiple sub-slides, hiding rather than appending), use Touying’s uncover / only / alternatives inside a .complex-anim block:\n::: {.complex-anim repeat=\"4\"}\nAt subslide #only(\"2-\")[two and later] and #uncover(\"3-\")[three and later].\n:::"
+  },
+  {
+    "objectID": "tutorial.html#multiple-columns",
+    "href": "tutorial.html#multiple-columns",
+    "title": "Tutorial",
+    "section": "Multiple columns",
+    "text": "Multiple columns\nPlace content side by side with .columns / .column and a width:\n:::: {.columns}\n::: {.column width=\"40%\"}\nLeft column.\n:::\n::: {.column width=\"60%\"}\nRight column, a little wider.\n:::\n::::\n\n\n\nColumns honour the width attribute"
+  },
+  {
+    "objectID": "tutorial.html#content",
+    "href": "tutorial.html#content",
+    "title": "Tutorial",
+    "section": "Content",
+    "text": "Content\nAll of the standard Quarto + Typst content works without any extra setup.\n\nEquations\nInline $E = mc^2$ and display math render with Typst’s typesetting:\n$$\\int_0^1 x^2 \\, dx = \\frac{1}{3}$$\n\n\n\nCode blocks\nFenced code blocks are syntax-highlighted:\n```python\ndef greet(name):\n    return f\"Hello, {name}!\"\n```\n\nExecutable code works too — add an R or Python chunk and Quarto runs it, embedding the output (figures, tables) into the slide. Source is hidden by default in presentations; show it with echo: true.\n\n\nTables and images\nMarkdown tables and ![](image.png) images render as expected. For richer tables, use tinytable from an executable chunk."
+  },
+  {
+    "objectID": "tutorial.html#themes",
+    "href": "tutorial.html#themes",
+    "title": "Tutorial",
+    "section": "Themes",
+    "text": "Themes\nSwitch the whole look with one option:\nformat: touying-typst\ntheme: dewdrop   # default | simple | metropolis\n                 # dewdrop | university | aqua | stargazer\nSeven themes ship with the extension. The styled clean theme is a separate Typst Universe package used through the external-theme path. Browse them all — and flip through a full deck in each — on the Gallery page.\nYou can nudge colours and fonts from the front matter:\naccent: \"1f6feb\"       # primary colour (hex, no #)\naccent2: \"9a2515\"      # secondary colour\njet: \"1b1f24\"          # body text colour\nmainfont: \"Source Serif\"  # body font\nsansfont: \"Fira Sans\"     # heading font\nmonofont: \"Fira Code\"     # code font\nColours (accent / accent2 / jet) and fonts (mainfont / sansfont / monofont) apply to every theme. accent also colours the .button and .small-cite helpers. A styled theme’s own extra knobs (font sizes, weights, etc.) are set on the theme function with .with(...) — see External themes.\n\nBrand\nA Quarto brand (_brand.yml or a brand: key) is picked up automatically as a fallback for the options above. brand.color.* set the palette and brand.typography.base / headings / monospace set the body, heading, and code fonts – all for every theme:\nbrand:\n  color:\n    primary: \"#1f6feb\"\n    secondary: \"#cf222e\"\n    foreground: \"#1b1f24\"\n  typography:\n    headings: { family: \"Fira Sans\", weight: 600 }\n    base: { family: \"Source Serif 4\" }\nExplicit accent / sansfont / … always take precedence over brand.\n\n\nExternal themes\nYou are not limited to the built-ins: any Touying theme works, whether you wrote it yourself or installed it from Typst Universe. The recipe is always the same two steps:\n\nBring the theme’s function into scope with include-in-header.\nName that function with theme-typst (its title slide defaults to title-slide; set theme-title-slide if the theme calls it something else).\n\nA custom theme file. Suppose you have a mytheme.typ defining a mytheme-theme function (and a title-slide), such as the deck built in Touying’s Build Your Own Theme guide. Point include-in-header at the file:\nformat:\n  touying-typst:\n    include-in-header: mytheme.typ\n    theme-typst: mytheme-theme\nA Typst Universe package. Import it inline with the text: form. (Writing a bare @preview/... as a plain YAML value will not work: Pandoc parses the @ as a citation.)\nformat:\n  touying-typst:\n    include-in-header:\n      text: |\n        #import \"@preview/touying-flow:1.2.0\": *\n    theme-typst: flow-theme\nThe styled clean theme is loaded the same way, and its title slide adds structured authors (affiliation, email, ORCID):\nformat:\n  touying-typst:\n    include-in-header:\n      text: |\n        #import \"@preview/touying-quarto-clean:0.2.0\": *\n    theme-typst: clean-theme\nEither way the front-matter title / author / date feed the theme’s title slide, and accent / accent2 / jet (or brand.color.*) map onto its colour palette, exactly like the built-in themes. The clean (Universe), bamboo (custom), and flow (Universe) decks on the Gallery page are live examples.\nA theme pinned to an older Touying version usually still works. If it hard-codes a font you don’t have installed, fetch that font with brand and point the theme’s own font option at it – the flow deck does exactly this for its code font (flow-theme.with(code-font: \"JetBrains Mono\")). When a theme package exports its own .button / .fg / .bg helpers (as clean does), importing it with : * makes those take over from the base versions, so they match the theme automatically."
+  },
+  {
+    "objectID": "tutorial.html#emphasis-and-buttons",
+    "href": "tutorial.html#emphasis-and-buttons",
+    "title": "Tutorial",
+    "section": "Emphasis and buttons",
+    "text": "Emphasis and buttons\nThe extension adds a few inline helpers:\n\n\n\n\n\n\n\nMarkup\nRenders\n\n\n\n\n[text]{.alert}\nAccent-coloured emphasis\n\n\n[text]{.fg options='fill: rgb(\"#5D639E\")'}\nCustom-coloured text\n\n\n[text]{.bg}\nHighlighted background\n\n\n[[label]{.button}](#target)\nBeamer-style goto button\n\n\n[text]{.small-cite}\nSmall, muted citation text\n\n\n\nAll of these work in every theme. .alert uses the theme’s own accent, while .button and .small-cite follow the deck’s accent / jet (a base default when unset). .fg / .bg use a fixed accent colour by default, so pass options to choose your own (e.g. [text]{.fg options='fill: rgb(\"#5D639E\")'}). A styled theme loaded with : * (e.g. clean) supplies its own theme-matched .button / .fg / .bg / .small-cite.\nThese are commands (inline) and environments (block) — [x]{.cmd} becomes #cmd()[x] and ::: {.env} becomes #env()[…], with any options passed through. Map your own to any Typst function from the front matter:\ncommands:\n  - highlight # [x]{.highlight} -&gt; #highlight()[x]\nenvironments:\n  - theorem # ::: {.theorem} -&gt; #theorem()[ ... ]"
+  },
+  {
+    "objectID": "tutorial.html#native-touying",
+    "href": "tutorial.html#native-touying",
+    "title": "Tutorial",
+    "section": "Native Touying",
+    "text": "Native Touying\nAnything Touying can do is available as raw Typst. Inline #pause, #meanwhile, and any Touying function can be dropped straight into your Markdown. A few extras:\naspect-ratio: \"16-9\"   # or \"4-3\"\nhandout: true          # collapse every incremental reveal into one slide\nMark the start of back-matter with the appendix shortcode — it freezes the slide counter so appendix slides don’t inflate the total in the footer:\n{{&lt; appendix &gt;}}\n\n## Extra slide"
+  }
+]
