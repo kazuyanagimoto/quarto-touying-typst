@@ -295,16 +295,7 @@ format:
 bare `@preview/...` as a plain YAML value will not work: Pandoc parses the `@`
 as a citation.)
 
-```yaml
-format:
-  touying-typst:
-    include-in-header:
-      text: |
-        #import "@preview/touying-matcha:0.1.0": *
-    theme-typst: matcha-theme
-```
-
-The styled **`clean`** theme is loaded the same way, and its title slide adds
+The styled **`clean`** theme is loaded this way, and its title slide also takes
 structured authors (affiliation, email, ORCID):
 
 ```yaml
@@ -318,9 +309,8 @@ format:
 
 Either way the front-matter `title` / `author` / `date` feed the theme's title
 slide, and `accent` / `accent2` / `jet` (or `brand.color.*`) map onto its
-colour palette, exactly like the built-in themes. The `clean` (Universe),
-`bamboo` (custom), and `matcha` (Universe) decks on the [Gallery](gallery.qmd)
-page are live examples.
+colour palette, exactly like the built-in themes. The `clean` (Universe) and
+`bamboo` (custom) decks on the [Gallery](gallery.qmd) page are live examples.
 
 A theme pinned to an older Touying version usually still works. If it hard-codes
 a font you don't have installed, fetch that font with `brand` and, where the

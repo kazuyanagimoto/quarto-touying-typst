@@ -4,9 +4,8 @@ toc: false
 ---
 
 Every theme deck below is rendered from the [same source](https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/docs/gallery/_slides.qmd)
--- the seven built-in Touying themes via `theme:`, plus the styled
-[`clean`](https://typst.app/universe/package/touying-quarto-clean) theme loaded
-as an external Typst Universe package. Click a card to **flip through the slides in your browser**
+-- the seven built-in Touying themes, selected with `theme:`.
+Click a card to **flip through the slides in your browser**
 (navigable HTML exported with
 [touying-exporter](https://github.com/touying-typ/touying-exporter)); use the
 arrow keys, or grab the `PDF`.
@@ -19,7 +18,6 @@ arrow keys, or grab the `PDF`.
 <div class="card"><a class="deck" href="slides/university.html"><img src="static/images/university.png" alt="university theme"></a><div class="label"><a href="slides/university.html">university</a><a class="pdf" href="gallery/university.pdf">PDF</a></div></div>
 <div class="card"><a class="deck" href="slides/aqua.html"><img src="static/images/aqua.png" alt="aqua theme"></a><div class="label"><a href="slides/aqua.html">aqua</a><a class="pdf" href="gallery/aqua.pdf">PDF</a></div></div>
 <div class="card"><a class="deck" href="slides/stargazer.html"><img src="static/images/stargazer.png" alt="stargazer theme"></a><div class="label"><a href="slides/stargazer.html">stargazer</a><a class="pdf" href="gallery/stargazer.pdf">PDF</a></div></div>
-<div class="card"><a class="deck" href="slides/clean.html"><img src="static/images/clean.png" alt="clean theme"></a><div class="label"><a href="slides/clean.html">clean</a><a class="pdf" href="gallery/clean.pdf">PDF</a></div></div>
 :::
 
 <br>
@@ -45,13 +43,14 @@ scope with `include-in-header` and name it with `theme-typst`:
 - **`bamboo`** is a custom theme written from scratch -- the worked example from
   Touying's [Build Your Own Theme](https://touying-typ.github.io/docs/tutorials/build-your-own-theme)
   guide, shipped as a local `.typ` file.
-- **`matcha`** is [`touying-matcha`](https://typst.app/universe/package/touying-matcha),
-  a theme published on [Typst Universe](https://typst.app/universe), pulled in
-  with a one-line `#import`.
+- **`clean`** is [`touying-quarto-clean`](https://typst.app/universe/package/touying-quarto-clean),
+  a styled theme published on [Typst Universe](https://typst.app/universe),
+  pulled in with a one-line `#import`. Its title slide also takes structured
+  authors (affiliation, email, ORCID).
 
 ::: {.gallery}
 <div class="card"><a class="deck" href="slides/bamboo.html"><img src="static/images/bamboo.png" alt="bamboo custom theme"></a><div class="label"><a href="slides/bamboo.html">bamboo</a><span class="links"><a class="pdf" href="https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/docs/gallery/bamboo.qmd">Code</a><a class="pdf" href="gallery/bamboo.pdf">PDF</a></span></div></div>
-<div class="card"><a class="deck" href="slides/matcha.html"><img src="static/images/matcha.png" alt="matcha theme from Typst Universe"></a><div class="label"><a href="slides/matcha.html">matcha</a><span class="links"><a class="pdf" href="https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/docs/gallery/matcha.qmd">Code</a><a class="pdf" href="gallery/matcha.pdf">PDF</a></span></div></div>
+<div class="card"><a class="deck" href="slides/clean.html"><img src="static/images/clean.png" alt="clean theme from Typst Universe"></a><div class="label"><a href="slides/clean.html">clean</a><span class="links"><a class="pdf" href="https://github.com/kazuyanagimoto/quarto-touying-typst/blob/main/docs/gallery/clean.qmd">Code</a><a class="pdf" href="gallery/clean.pdf">PDF</a></span></div></div>
 :::
 
 ```{=html}
