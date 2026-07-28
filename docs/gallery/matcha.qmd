@@ -1,0 +1,17 @@
+---
+title: "matcha"
+subtitle: "A Touying theme from Typst Universe"
+format:
+  touying-typst:
+    include-in-header:
+      text: |
+        #import "@preview/touying-matcha:0.1.0": *
+    theme-typst: matcha-theme
+author:
+  - name: Your Name
+    affiliations: Your Institution
+date: today
+date-format: long
+---
+
+{{< include _slides.qmd >}}

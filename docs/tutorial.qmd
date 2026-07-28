@@ -300,8 +300,8 @@ format:
   touying-typst:
     include-in-header:
       text: |
-        #import "@preview/touying-flow:1.2.0": *
-    theme-typst: flow-theme
+        #import "@preview/touying-matcha:0.1.0": *
+    theme-typst: matcha-theme
 ```
 
 The styled **`clean`** theme is loaded the same way, and its title slide adds
@@ -319,16 +319,18 @@ format:
 Either way the front-matter `title` / `author` / `date` feed the theme's title
 slide, and `accent` / `accent2` / `jet` (or `brand.color.*`) map onto its
 colour palette, exactly like the built-in themes. The `clean` (Universe),
-`bamboo` (custom), and `flow` (Universe) decks on the [Gallery](gallery.qmd)
+`bamboo` (custom), and `matcha` (Universe) decks on the [Gallery](gallery.qmd)
 page are live examples.
 
 A theme pinned to an older Touying version usually still works. If it hard-codes
-a font you don't have installed, fetch that font with `brand` and point the
-theme's own font option at it -- the `flow` deck does exactly this for its code
-font (`flow-theme.with(code-font: "JetBrains Mono")`). When a theme package
-exports its own `.button` / `.fg` / `.bg` helpers (as `clean` does), importing
-it with `: *` makes those take over from the base versions, so they match the
-theme automatically.
+a font you don't have installed, fetch that font with `brand` and, where the
+theme takes a font option, point that option at it -- the `clean` deck does the
+former, pulling Roboto and Fira Code from Google so the deck renders the same on
+any machine. A theme's options are set by rebinding it before use, e.g.
+`#let clean-theme = clean-theme.with(...)`. When a theme package exports its own
+`.button` / `.fg` / `.bg` helpers (as `clean` does), importing it with `: *`
+makes those take over from the base versions, so they match the theme
+automatically.
 
 ## Emphasis and buttons
 
