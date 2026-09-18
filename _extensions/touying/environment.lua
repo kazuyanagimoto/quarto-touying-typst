@@ -91,12 +91,38 @@ local function writeEnvironments(el)
   end
 end
 
+-- The single link a span is made of, if that is all it holds (surrounding
+-- whitespace aside); `nil` otherwise.
+local function soleLink(inlines)
+  local found = nil
+  for _, inline in ipairs(inlines) do
+    if inline.t == "Link" then
+      if found then return nil end
+      found = inline
+    elseif inline.t ~= "Space" and inline.t ~= "SoftBreak" then
+      return nil
+    end
+  end
+  return found
+end
+
 local function writeCommands(el)
   if not quarto.doc.is_format("typst") then
     return nil
   end
   for k, v in pairs(classCommands) do
     if el.attr.classes:includes(k) then
+      local content = el.content
+      -- `[[label](#target)]{.button}` puts the link *inside* the button, so a
+      -- theme's `show link` rule repaints the label -- on `clean` that is the
+      -- primary colour, i.e. the button's own fill, leaving it unreadable.
+      -- Hoist the link back out (the documented `[[label]{.button}](#target)`
+      -- form), which also makes the whole box clickable, not just the glyphs.
+      local outer = nil
+      if k == "button" then
+        outer = soleLink(content)
+        if outer then content = outer.content end
+      end
       local inlines = pandoc.List({
         pandoc.RawInline('typst', '#' .. pandoc.utils.stringify(v) .. '('),
       })
@@ -105,8 +131,12 @@ local function writeCommands(el)
         inlines:insert(pandoc.RawInline('typst', opts))
       end
       inlines:insert(pandoc.RawInline('typst', ')['))
-      inlines:extend(el.content)
+      inlines:extend(content)
       inlines:insert(pandoc.RawInline('typst', ']'))
+      if outer then
+        outer.content = inlines
+        return outer
+      end
       return inlines
     end
   end

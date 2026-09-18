@@ -10,6 +10,21 @@ author:
     affiliations: Your Institution
 date: today
 date-format: long
+# Touying documents this theme with Fira Sans; fetch it so the deck renders
+# identically on any machine (e.g. CI) without it installed system-wide.
+brand:
+  typography:
+    fonts:
+      - family: Fira Sans
+        weight: [300, 400, 500, 600, 700]
+        style: [normal, italic]
+        source: google
+      - family: Fira Code
+        weight: [300, 400, 500, 600, 700]
+        source: google
+    base: Fira Sans
+    headings: Fira Sans
+    monospace: Fira Code
 ---
 
 {{< include _slides.qmd >}}

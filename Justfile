@@ -28,8 +28,13 @@ decks:
     set -euo pipefail
     quarto render docs -M keep-typ:true
     mkdir -p docs/slides
+    # The exporter runs its own Typst, so it needs the fonts Quarto fetched for
+    # `brand` (Roboto, Fira Code, ...) handed to it explicitly -- without them
+    # every deck falls back to Typst's default serif.
+    mkdir -p docs/.quarto/typst/fonts
     for th in {{themes}} {{extras}}; do
-      touying compile docs/gallery/$th.typ --format html --output docs/slides/$th.html
+      touying compile docs/gallery/$th.typ --format html --output docs/slides/$th.html \
+        --font-paths docs/.quarto/typst/fonts
       echo "docs/slides/$th.html"
     done
 
