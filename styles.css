@@ -1,0 +1,115 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.gallery .card {
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.gallery .card:hover {
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.gallery .card .deck {
+  display: block;
+}
+
+.gallery .card img {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.gallery .card .label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.9rem;
+  font-weight: 600;
+  font-family: var(--bs-font-monospace, monospace);
+}
+
+.gallery .card .label a {
+  text-decoration: none;
+}
+
+/* Title shrinks (truncating if needed) so it never overlaps the buttons. */
+.gallery .card .label > a {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gallery .card .label .links {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  margin-left: 0.6rem;
+}
+
+.gallery .card .label .pdf {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25rem;
+  color: #495057;
+}
+
+.gallery .card .label .pdf:hover {
+  background: #f1f3f5;
+}
+
+/* In-page deck viewer (no page transition) */
+.deck-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.deck-modal.open {
+  display: flex;
+}
+
+.deck-modal .frame {
+  position: relative;
+  width: min(92vw, calc(88vh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  background: #fff;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.45);
+}
+
+.deck-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.deck-modal .close {
+  position: absolute;
+  top: -2.4rem;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #212529;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
