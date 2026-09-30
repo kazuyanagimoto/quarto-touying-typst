@@ -17,11 +17,12 @@ $else$
 #let selected-title-slide = touying-title-slides.at(selected-theme)
 $endif$
 
-// Fonts: explicit option first, then `brand`. Set at the document root so they
-// reach EVERY theme -- the built-in Touying themes set text size/weight but not
-// the font family, so they inherit these. A styled external theme (e.g. `clean`)
-// sets its own font family inside the theme, which overrides these root rules,
-// so the same values are also forwarded to `theme-show` below.
+// Fonts: explicit option first, then `brand`. Set at the document root, so they
+// reach every theme that leaves the font family alone: the built-in Touying
+// themes set text size/weight but not the family, so they inherit these. A
+// styled external theme (e.g. `clean`) sets its own family inside the theme,
+// which overrides these root rules, so the same values are also forwarded to
+// `theme-show` below, reaching a theme that takes clean's font option names.
 $if(mainfont)$#set text(font: ("$mainfont$",))
 $elseif(brand.typography.base.family)$#set text(font: $brand.typography.base.family$)
 $endif$

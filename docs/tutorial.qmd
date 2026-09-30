@@ -241,19 +241,11 @@ sansfont: "Fira Sans"     # heading font
 monofont: "Fira Code"     # code font
 ```
 
-Colours (`accent` / `accent2` / `jet`) and fonts (`mainfont` / `sansfont` /
-`monofont`) apply to every theme. `accent` also colours the `.button` and
-`.small-cite` helpers. A styled theme's own extra knobs (font sizes, weights,
-etc.) are set on the theme function with `.with(...)` — see
-[External themes](#external-themes).
+Colours (`accent` / `accent2` / `jet`) and fonts (`mainfont` / `sansfont` / `monofont`) apply to every built-in theme and to `clean`. Whether they reach another external theme depends on how that theme is written; see [External themes](#external-themes). `accent` also colours the `.button` and `.small-cite` helpers. A styled theme's own extra knobs (font sizes, weights, etc.) are set on the theme function with `.with(...)`.
 
 ### Brand
 
-A [Quarto brand](https://quarto.org/docs/authoring/brand.html) (`_brand.yml`
-or a `brand:` key) is picked up automatically as a fallback for the options
-above. `brand.color.*` set the palette and `brand.typography.base` /
-`headings` / `monospace` set the body, heading, and code fonts -- all for
-every theme:
+A [Quarto brand](https://quarto.org/docs/authoring/brand.html) (`_brand.yml` or a `brand:` key) is picked up automatically as a fallback for the options above, and reaches the same themes they do. `brand.color.*` set the palette, and `brand.typography.base` / `headings` / `monospace` set the body, heading, and code fonts:
 
 ```yaml
 brand:
@@ -307,14 +299,11 @@ format:
     theme-typst: clean-theme
 ```
 
-Either way the front-matter `title` / `author` / `date` feed the theme's title
-slide, and `accent` / `accent2` / `jet` (or `brand.color.*`) map onto its
-colour palette, exactly like the built-in themes. The `clean` (Universe) and
-`bamboo` (custom) decks on the [Gallery](gallery.qmd) page are live examples.
+Either way the front-matter `title` / `author` / `date` feed the theme's title slide. `accent` / `accent2` / `jet` (or `brand.color.*`) map onto Touying's standard colour palette (`config-colors`), as they do for the built-in themes, so they take effect wherever the theme draws its colours from that palette (`self.colors`). The `clean` (Universe) and `bamboo` (custom) decks on the [Gallery](gallery.qmd) page are live examples.
 
 A theme pinned to an older Touying version usually still works. If it hard-codes a font you don't have installed, fetch that font with `brand`; the `clean` deck does this, pulling Roboto and Fira Code from Google so the deck renders the same on any machine.
 
-The deck fonts (`mainfont` / `sansfont` / `monofont`, or `brand.typography`) reach external themes too. A theme that sets its own fonts would override the document-wide ones, so the extension also passes the deck fonts to the theme function as `font-family-body` / `font-family-heading` / `font-family-mono`, the option names `clean` uses; a theme without these options ignores them. Like `accent` / `accent2` / `jet`, the deck fonts take precedence over the same options set with `.with(...)` in the header.
+Fonts depend more on the theme than colours do, because Touying has no standard font setting. The deck fonts (`mainfont` / `sansfont` / `monofont`, or `brand.typography`) are set document-wide, which is enough for a theme that leaves the font family alone, as `bamboo` and the built-in themes do. A theme that sets its own fonts overrides the document-wide ones, so the extension also passes the deck fonts to the theme function as `font-family-body` / `font-family-heading` / `font-family-mono`, the option names `clean` uses. A theme that names its font options differently ignores these and keeps its own fonts; set them through that theme's own options with `.with(...)` instead. Where the deck fonts do reach the theme's options, they take precedence over the same options set with `.with(...)` in the header, as the colours do.
 
 A theme's other options (font sizes, weights, etc.) are set by rebinding it before use, e.g. `#let clean-theme = clean-theme.with(font-size: 22pt)`. When a theme package exports its own `.button` / `.fg` / `.bg` helpers (as `clean` does), importing it with `: *` makes those take over from the base versions, so they match the theme automatically.
 
