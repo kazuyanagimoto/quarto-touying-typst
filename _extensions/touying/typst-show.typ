@@ -19,8 +19,9 @@ $endif$
 
 // Fonts: explicit option first, then `brand`. Set at the document root so they
 // reach EVERY theme -- the built-in Touying themes set text size/weight but not
-// the font family, so they inherit these. (The `clean` theme reads the same
-// values through its own store, so the values agree and there is no conflict.)
+// the font family, so they inherit these. A styled external theme (e.g. `clean`)
+// sets its own font family inside the theme, which overrides these root rules,
+// so the same values are also forwarded to `theme-show` below.
 $if(mainfont)$#set text(font: ("$mainfont$",))
 $elseif(brand.typography.base.family)$#set text(font: $brand.typography.base.family$)
 $endif$
@@ -35,10 +36,20 @@ $endif$
   selected-theme,
   aspect-ratio: "$if(aspect-ratio)$$aspect-ratio$$else$16-9$endif$",
   $if(handout)$ handout: true, $endif$
+  // Fonts: the same values as the document-root rules above, handed on to
+  // external themes that style their own fonts.
+  $if(mainfont)$ font-body: ("$mainfont$",),
+  $elseif(brand.typography.base.family)$ font-body: $brand.typography.base.family$,
+  $endif$
+  $if(sansfont)$ font-heading: ("$sansfont$",),
+  $elseif(brand.typography.headings.family)$ font-heading: $brand.typography.headings.family$,
+  $endif$
+  $if(monofont)$ font-mono: ("$monofont$",),
+  $elseif(brand.typography.monospace.family)$ font-mono: $brand.typography.monospace.family$,
+  $endif$
   // Colours: explicit option first, then `brand` (_brand.yml). These map onto
   // the standard Touying palette and also seed the `button` / `small-cite`
-  // helper colours. Fonts are set at the document root (above); a styled
-  // external theme's own font knobs are set with `.with(...)` in its header.
+  // helper colours.
   $if(accent)$ accent: rgb("$accent$"),
   $elseif(brand.color.primary)$ accent: brand-color.primary,
   $endif$

@@ -93,8 +93,9 @@
 // Normalises a common set of options onto each theme, so the show rule in
 // typst-show.typ stays theme-agnostic. The SAME path serves built-in themes and
 // external ones (a theme function from `include-in-header` / `theme-typst`):
-// colours map onto the standard Touying palette via `config-colors`, and a
-// theme's own extra knobs (fonts, etc.) are set with `.with(...)` in the header.
+// colours map onto the standard Touying palette via `config-colors`, fonts are
+// forwarded to external themes (below), and a theme's own extra knobs (font
+// sizes, weights, etc.) are set with `.with(...)` in the header.
 // `foreground` is the body text colour, `accent` the primary, `accent2` the
 // secondary. Colour/font options come from explicit YAML or, as a fallback,
 // from `brand` (see typst-show.typ).
@@ -105,11 +106,25 @@
   accent: none,
   accent2: none,
   foreground: none,
+  font-body: none,
+  font-heading: none,
+  font-mono: none,
   ..info-args,
 ) = {
   // `name` is a built-in theme name (string) or an external theme function.
   let base = if type(name) == function { name } else { touying-themes.at(name) }
   let named = (aspect-ratio: aspect-ratio)
+  // A styled external theme (e.g. `clean`) sets its font family from its own
+  // options, overriding the document-root font rules, so hand the deck fonts
+  // over as `font-family-body` / `-heading` / `-mono`. A theme without these
+  // options drops them: Touying themes pass extra options on through `..args`,
+  // and `touying-slides` reads only positional configs. Built-in themes leave
+  // the family alone and inherit the root rules, so they need nothing here.
+  if type(name) == function {
+    if font-body != none { named.insert("font-family-body", font-body) }
+    if font-heading != none { named.insert("font-family-heading", font-heading) }
+    if font-mono != none { named.insert("font-family-mono", font-mono) }
+  }
   let cfg = (config-info(..info-args),)
   if handout { cfg.push(config-common(handout: true)) }
   let colors = (:)
